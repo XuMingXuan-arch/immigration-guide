@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CET-4 写作模板包 · Marvin 专属</title>
+<style>
+  :root{
+    --bg:#f5f7fb; --card:#ffffff; --ink:#1f2a44; --sub:#5a6b8c;
+    --line:#e3e9f2; --accent:#2f6df0; --accent2:#0ea5a3; --warn:#e0533d; --ok:#1f9d57;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;font-size:16px}
+  header{background:linear-gradient(135deg,#2f6df0,#0ea5a3);color:#fff;padding:34px 24px}
+  header h1{font-size:26px;margin-bottom:6px}
+  header p{opacity:.92;font-size:14px}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 18px 60px}
+  nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);
+    padding:10px 14px;display:flex;gap:14px;flex-wrap:wrap;font-size:13px;z-index:5}
+  nav a{color:var(--accent);text-decoration:none;white-space:nowrap}
+  nav a:hover{text-decoration:underline}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:22px;margin:18px 0;box-shadow:0 2px 10px rgba(31,42,68,.04)}
+  h2{font-size:20px;margin-bottom:12px;color:var(--accent);border-left:4px solid var(--accent);padding-left:10px}
+  h3{font-size:16px;margin:16px 0 8px;color:var(--ink)}
+  p,li{color:var(--sub);margin:6px 0}
+  ul,ol{padding-left:22px}
+  .lead{background:#eef4ff;border:1px solid #d4e2ff;border-radius:10px;padding:12px 14px;color:#33508f;font-size:14px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+  .box{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#fafcff}
+  .box b{color:var(--ink)}
+  .tag{display:inline-block;background:var(--accent);color:#fff;font-size:12px;
+    padding:2px 8px;border-radius:20px;margin-right:6px}
+  .tag.g{background:var(--ok)} .tag.w{background:var(--warn)} .tag.t{background:var(--accent2)}
+  pre{background:#0f1b34;color:#e8f0ff;padding:14px;border-radius:10px;overflow:auto;
+    font-size:13px;line-height:1.6;white-space:pre-wrap;font-family:"SFMono-Regular",Consolas,monospace}
+  .ver{border:1px dashed var(--accent2);border-radius:10px;padding:12px 14px;background:#f3fbfa;margin:8px 0}
+  .ver b{color:#0c7d7b}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#eef4ff;color:#33508f}
+  .up{color:var(--ok);font-weight:600}
+  .note{font-size:13px;color:var(--warn)}
+  footer{padding:20px;text-align:center;color:var(--sub);font-size:13px}
+  @media(max-width:640px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>CET-4 写作模板包</h1>
+  <p>Marvin 专属 · 框架 + 万能句型 + 完整范文 · 背熟往里套就能用 · 目标 500+</p>
+</header>
+
+<nav>
+  <a href="#rule">① 考什么</a>
+  <a href="#struct">② 三段式结构</a>
+  <a href="#sent">③ 万能句型</a>
+  <a href="#tpl">④ 分类模板+范文</a>
+  <a href="#vocab">⑤ 词汇升级</a>
+  <a href="#pit">⑥ 避坑</a>
+  <a href="#time">⑦ 时间分配</a>
+</nav>
+
+<div class="wrap">
+
+<section id="rule">
+  <h2>① 四级写作到底考什么</h2>
+  <div class="lead">30 分钟 · 至少 120 词 · 占总分 15%（约 106 分）。阅卷老师平均 30 秒看一篇，拼的是：<b>切题 + 结构清晰 + 少语法错 + 有亮点词/句</b>。</div>
+  <div class="grid">
+    <div class="box"><b>字数硬指标</b><br>少于 120 词直接扣分；120–180 词最佳；别写太长，越长越容易出错。</div>
+    <div class="box"><b>评分四看</b><br>1 是否切题 2 结构清不清 3 语法错多不多 4 有没有亮点表达。</div>
+    <div class="box"><b>常见题型</b><br>现象论述 / 对比选择 / 问题解决 / 应用文（书信·通知·建议）。</div>
+    <div class="box"><b>主题范围</b><br>校园生活、科技影响、学习习惯、社会现象、传统文化——基本不考专业内容。</div>
+  </div>
+</section>
+
+<section id="struct">
+  <h2>② 万能三段式结构（所有议论文通用）</h2>
+  <p>无论什么题目，都按这个骨架写，永远不跑偏：</p>
+  <table>
+    <tr><th>段落</th><th>字数</th><th>写什么</th></tr>
+    <tr><td><b>第一段</b><br>引入+观点</td><td>约 30 词</td><td>用 1–2 句点出现象/话题，立刻抛出<b>我的观点</b>。别绕。</td></tr>
+    <tr><td><b>第二段</b><br>论证</td><td>约 80 词</td><td>2 个理由或 1 理由+1 例子。这是拿分主体，写扎实。</td></tr>
+    <tr><td><b>第三段</b><br>总结</td><td>约 30 词</td><td>重申观点 + 一句建议/展望。干净收尾。</td></tr>
+  </table>
+  <p class="note">提示：先花 5 分钟列中文提纲（每段关键词），再动笔，能避免写飞。</p>
+</section>
+
+<section id="sent">
+  <h2>③ 万能句型库（直接背，考试填空）</h2>
+  <h3><span class="tag t">开头引入</span></h3>
+  <pre>Nowadays, there is a growing concern over ______ (主题).
+With the rapid development of ______, it has become a hot topic.
+When it comes to ______, opinions vary from person to person.</pre>
+  <h3><span class="tag">表达观点</span></h3>
+  <pre>As far as I am concerned, ______.
+From my perspective, ______.
+I am firmly convinced that ______.</pre>
+  <h3><span class="tag">展开论证</span></h3>
+  <pre>The reason why ______ is that ______.
+What's more / Furthermore, ______.
+A case in point is that ______ (举例).</pre>
+  <h3><span class="tag g">结尾收束</span></h3>
+  <pre>In conclusion, ______.
+Only by ______ can we ______.
+It is high time that we ______.</pre>
+</section>
+
+<section id="tpl">
+  <h2>④ 分类模板 + 范文</h2>
+
+  <h3>模板 A · 现象解释 / 观点论述（最常见）</h3>
+  <div class="ver"><b>框架：</b><br>
+  第一段：Nowadays, ______ 现象引起关注。As far as I am concerned, 我认为______。<br>
+  第二段：理由1（The reason is that...）+ 理由2（Furthermore...）+ 可选例子。<br>
+  第三段：In conclusion, ______. 建议/展望一句。</div>
+  <pre><b>题目示例：</b>Comment on "Reading is still important in the digital age."
+（数字时代阅读依然重要）
+
+Nowadays, with the popularity of digital devices, there is a growing concern over whether reading is still important. As far as I am concerned, reading remains indispensable in our lives.
+
+The reason why I hold this view is that reading broadens our horizons and cultivates independent thinking. Furthermore, compared with fragmented information online, books provide deeper and more systematic knowledge. A case in point is that many successful people attribute their growth to lifelong reading.
+
+In conclusion, reading is crucial despite the digital trend. It is high time that we developed a regular reading habit.</pre>
+
+  <h3>模板 B · 对比选择（A vs B）</h3>
+  <div class="ver"><b>框架：</b><br>
+  第一段：When it comes to ______, 有人选A有人选B。From my perspective, 我选______。<br>
+  第二段：选A的理由 / 或对比：Although A has merits, B is better because...<br>
+  第三段：总结 + 个人展望。</div>
+  <pre><b>题目示例：</b>Live in a big city or a small town after graduation?
+
+When it comes to where to live after graduation, opinions vary. Some prefer big cities, while others choose small towns. From my perspective, I would rather settle in a big city.
+
+The reason is that big cities offer more career opportunities and better public services. Furthermore, they gather diverse cultures, which helps young people grow faster. Although small towns are quieter, they may limit one's development.
+
+In conclusion, a big city fits my ambition at this stage. Only by seizing its opportunities can we achieve our goals.</pre>
+
+  <h3>模板 C · 问题解决（how to...）</h3>
+  <div class="ver"><b>框架：</b><br>
+  第一段：______ 问题日益严重。I think several measures can be taken.<br>
+  第二段：措施1（First, 个人/学校层面）+ 措施2（Besides, 社会层面）。<br>
+  第三段：总结，问题可解。</div>
+  <pre><b>题目示例：</b>How to reduce stress among college students?
+
+Nowadays, stress has become a common problem among college students. As far as I am concerned, several practical measures can be taken to relieve it.
+
+First, students should learn to balance study and rest, such as doing sports regularly. Besides, universities ought to provide psychological support, like counseling centers. A case in point is that exercise has been proven to lower anxiety effectively.
+
+In conclusion, stress can be managed with the right methods. It is high time that we paid attention to mental health.</pre>
+
+  <h3>模板 D · 应用文（书信 / 建议 / 通知）</h3>
+  <div class="ver"><b>框架（建议信）：</b><br>
+  开头：I am writing to express my suggestions on ______.<br>
+  主体：建议1 + 建议2（I suggest that... / It would be better if...）。<br>
+  结尾：Thank you for your consideration. / I hope my advice helps.</div>
+  <pre><b>题目示例：</b>Write a letter to the library suggesting improvements.
+
+Dear Sir or Madam,
+
+I am writing to express my suggestions on improving our library service. As a frequent user, I have noticed two issues worth addressing.
+
+First, I suggest extending opening hours during exam weeks, since students need more time to study. Furthermore, it would be better if more sockets and quiet zones were provided for laptops. These changes would greatly benefit readers.
+
+Thank you for your consideration. I hope my advice helps improve the library.
+
+Yours sincerely,
+Li Hua</pre>
+</section>
+
+<section id="vocab">
+  <h2>⑤ 词汇升级表（简单词 → 加分词）</h2>
+  <p>同样的意思，换个词立刻显水平。考试时挑 2–3 个用上就够。</p>
+  <table>
+    <tr><th>简单词</th><th>升级写法</th><th>简单词</th><th>升级写法</th></tr>
+    <tr><td>good</td><td class="up">beneficial / positive</td><td>think</td><td class="up">hold the view that</td></tr>
+    <tr><td>important</td><td class="up">crucial / vital</td><td>more and more</td><td class="up">increasingly</td></tr>
+    <tr><td>bad</td><td class="up">harmful / adverse</td><td>should</td><td class="up">it is advisable to</td></tr>
+    <tr><td>many</td><td class="up">a large number of</td><td>help</td><td class="up">contribute to</td></tr>
+    <tr><td>use</td><td class="up">make use of / utilize</td><td>because</td><td class="up">due to / owing to</td></tr>
+  </table>
+  <div class="lead">过渡词必背：First / Besides / Furthermore / However / Therefore / In conclusion —— 每段之间用上，结构分直接拉满。</div>
+</section>
+
+<section id="pit">
+  <h2>⑥ 避坑提醒（决定你能不能上 500）</h2>
+  <ul>
+    <li><b>不跑题：</b>先把题目读两遍，确定要你写"议论"还是"书信"，再动笔。</li>
+    <li><b>字数够：</b>低于 120 词必扣分，写满 120–150 最稳。</li>
+    <li><b>别硬堆长难句：</b>写错一句扣一分，简单句写对比错装高级更划算。</li>
+    <li><b>字迹工整：</b>阅卷极快，清晰可辨就加分，潦草直接掉档。</li>
+    <li><b>别用没把握的生僻词：</b>拼错比不用更糟。</li>
+  </ul>
+</section>
+
+<section id="time">
+  <h2>⑦ 30 分钟时间分配</h2>
+  <div class="grid">
+    <div class="box"><b>0–5 分钟</b><br>审题 + 列中文提纲（每段关键词）。</div>
+    <div class="box"><b>5–25 分钟</b><br>按三段式写，套句型、填内容。</div>
+    <div class="box"><b>25–30 分钟</b><br>检查：语法、拼写、字数够不够。</div>
+    <div class="box"><b>日常练法</b><br>每周写 1 篇照模板套，发阿布批改。</div>
+  </div>
+  <p class="lead">最重要的一条：<b>写完发给我改</b>。你写 5–8 句都行，我像平时一样逐句纠错+解释，比任何模板都长手感。这就是你的免费作文老师。</p>
+</section>
+
+</div>
+<footer>
+  本模板包为备考参考，非官方资料。真题请以教育部考试中心发布的四级大纲与历年真题为准。
+</footer>
+</body>
+</html>

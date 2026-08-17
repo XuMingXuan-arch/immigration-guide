@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雅思定位模考 · Marvin 专属</title>
+<style>
+  :root{
+    --bg:#0f1419; --panel:#1a2129; --panel2:#222c37; --line:#2c3742;
+    --txt:#e6edf3; --muted:#9aa7b4; --accent:#3fa7ff; --accent2:#2dd4bf;
+    --good:#34d399; --warn:#fbbf24; --bad:#f87171;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);
+    font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",Roboto,sans-serif;
+    line-height:1.65;font-size:15px}
+  header{background:linear-gradient(135deg,#13202e,#0f1419);padding:26px 20px;border-bottom:1px solid var(--line)}
+  header h1{margin:0 0 6px;font-size:23px;color:#fff}
+  header p{margin:0;color:var(--muted);font-size:13.5px}
+  .wrap{max-width:920px;margin:0 auto;padding:0 16px}
+  nav{position:sticky;top:0;background:rgba(15,20,25,.95);border-bottom:1px solid var(--line);
+    padding:10px 0;z-index:20;overflow-x:auto}
+  nav .wrap{display:flex;gap:8px;flex-wrap:wrap}
+  nav a{color:var(--muted);text-decoration:none;font-size:13px;padding:6px 12px;border:1px solid var(--line);
+    border-radius:20px;white-space:nowrap}
+  nav a:hover{color:var(--txt);border-color:var(--accent)}
+  section{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:22px;margin:22px 0}
+  h2{margin:0 0 4px;font-size:19px;color:#fff;display:flex;align-items:center;gap:8px}
+  h2 .tag{font-size:11px;background:var(--accent2);color:#062b27;padding:2px 8px;border-radius:10px;font-weight:700}
+  .lead{color:var(--muted);font-size:13.5px;margin:6px 0 16px}
+  .hint{background:var(--panel2);border-left:3px solid var(--accent);padding:10px 14px;border-radius:6px;
+    font-size:13px;color:var(--muted);margin:12px 0}
+  .passage{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:16px;
+    font-size:14px;line-height:1.8;color:#d4dde6}
+  .passage b{color:#fff}
+  .q{margin:16px 0;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--panel2)}
+  .q .num{color:var(--accent);font-weight:700;margin-right:6px}
+  .q .type{font-size:11px;color:var(--muted);background:#0f1419;padding:2px 8px;border-radius:8px;margin-left:8px}
+  .opt{display:block;margin:7px 0;padding:9px 12px;border:1px solid var(--line);border-radius:7px;
+    cursor:pointer;font-size:14px;transition:.15s}
+  .opt:hover{border-color:var(--accent)}
+  .opt input{margin-right:9px}
+  .opt.correct{background:rgba(52,211,153,.16);border-color:var(--good)}
+  .opt.wrong{background:rgba(248,113,113,.16);border-color:var(--bad)}
+  input.fill{width:100%;margin-top:8px;padding:9px 12px;background:#0f1419;color:var(--txt);
+    border:1px solid var(--line);border-radius:7px;font-size:14px}
+  .btn{background:var(--accent);color:#04121f;border:none;padding:11px 22px;border-radius:8px;
+    font-size:14.5px;font-weight:700;cursor:pointer;margin-top:8px}
+  .btn:hover{filter:brightness(1.08)}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+  .audio-box{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:14px;margin-bottom:14px}
+  .audio-box button{background:var(--accent2);color:#062b27;border:none;padding:8px 16px;border-radius:7px;
+    font-weight:700;cursor:pointer;margin-right:8px}
+  details{margin-top:10px}
+  details summary{cursor:pointer;color:var(--muted);font-size:13px}
+  details p{font-size:13.5px;color:var(--muted);white-space:pre-line;line-height:1.7}
+  select.sel{width:100%;padding:9px 12px;background:#0f1419;color:var(--txt);border:1px solid var(--line);
+    border-radius:7px;font-size:14px;margin-top:8px}
+  .chart{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:14px;text-align:center;margin:12px 0}
+  .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+  .card{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:16px;text-align:center}
+  .card .lab{font-size:12px;color:var(--muted)}
+  .card .val{font-size:30px;font-weight:800;margin:4px 0}
+  .card .sub{font-size:11px;color:var(--muted)}
+  .val.good{color:var(--good)} .val.warn{color:var(--warn)} .val.bad{color:var(--bad)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px}
+  th,td{border:1px solid var(--line);padding:9px 10px;text-align:left}
+  th{background:var(--panel2);color:#fff}
+  .pill{display:inline-block;padding:2px 10px;border-radius:10px;font-size:12px;font-weight:700}
+  .pill.ok{background:rgba(52,211,153,.18);color:var(--good)}
+  .pill.no{background:rgba(248,113,113,.18);color:var(--bad)}
+  footer{border-top:1px solid var(--line);margin-top:30px;padding:20px;color:var(--muted);font-size:12px;text-align:center}
+  @media(max-width:560px){header h1{font-size:20px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>雅思定位模考（IELTS Placement Mini-Test）</h1>
+    <p>为 Marvin 定制 · 高考英语约 110/150 · 目标：NSCC 入学线 6.0（四项≥6.0）→ PR 目标 CLB 7–9</p>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#reading">📖 阅读 Reading</a>
+    <a href="#listening">🎧 听力 Listening</a>
+    <a href="#writing">✍️ 写作 Writing</a>
+    <a href="#speaking">🗣️ 口语 Speaking</a>
+    <a href="#result">📊 结果与分析</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- ============ READING ============ -->
+<section id="reading">
+  <h2>📖 阅读 Reading <span class="tag">自动算分</span></h2>
+  <p class="lead">共 12 题（Heading 匹配 / 判断 / 选择 / 填空）。建议 18 分钟内完成。完成后点下方「批改阅读」。</p>
+  <div class="passage">
+<b>A.</b> In the 15th century, Johannes Gutenberg's invention of movable-type printing transformed Europe. Before this, books were copied by hand — a slow process that made them expensive and rare. Gutenberg's press, developed around 1440 in Mainz, Germany, allowed texts to be produced quickly and cheaply. Within decades, printed books spread across the continent.<br><br>
+<b>B.</b> The impact was profound. Literacy rates gradually rose as books became accessible to ordinary people. Religious texts, previously controlled by the Church, could now be read and interpreted privately. This contributed to major movements such as the Reformation. Scientific ideas also circulated faster; scholars could build on each other's work without waiting years for manuscript copies.<br><br>
+<C><b>C.</b> However, the printing press did not instantly create a reading public. In the early years, most printed material was still in Latin, limiting its audience. It took more than a century for vernacular languages to dominate printed books. Moreover, the cost of a book, while lower than a handwritten one, remained beyond the reach of the poorest families for generations.<br><br>
+<b>D.</b> Today, historians regard the printing press as one of the key inventions that shaped the modern world, comparable in importance to the internet in our own time.
+  </div>
+
+  <div id="rq"></div>
+  <button class="btn" onclick="gradeReading()">批改阅读</button>
+  <p id="rOut" class="hint" style="display:none"></p>
+</section>
+
+<!-- ============ LISTENING ============ -->
+<section id="listening">
+  <h2>🎧 听力 Listening <span class="tag">自动算分</span></h2>
+  <p class="lead">点击「播放录音」听一段培训船 briefing（海员主题，贴合你的专业）。可重复播放。听完后作答 10 题，再点「批改听力」。</p>
+  <div class="audio-box">
+    <button onclick="playAudio()">▶ 播放录音</button>
+    <button class="ghost" onclick="stopAudio()" style="background:transparent;color:var(--accent2);border:1px solid var(--accent2)">■ 停止</button>
+    <details>
+      <summary>看不了音频？点此显示文字稿（正式模考看不到，仅作备用）</summary>
+      <p>Good morning, everyone, and welcome aboard the training vessel Sea Scholar. My name is Captain Diaz, and I'll be giving you a short safety and schedule briefing before we set sail this afternoon.
+
+First, safety. Life jackets are stored in your cabin, under the bottom bunk. You must wear them during all deck drills, which happen every Tuesday at 9 a.m. The muster station for cadets is on the main deck, near the red lifeboat. Please memorise that location today.
+
+Now the daily routine. Breakfast is served from 6:30 to 7:15 in the lower mess. Classes begin at 8:00 sharp on the bridge simulator. In the afternoons, you'll get hands-on training: Mondays and Thursdays are navigation, Wednesdays are engine-room familiarisation, and Fridays are emergency response. Tuesdays are kept free in the afternoon for your personal study.
+
+A few rules. Mobile phones are not permitted on the bridge. The ship's Wi-Fi is available only between 7 p.m. and 10 p.m. in the crew lounge. And finally, the port call this week is in Halifax on Saturday; you may go ashore between 2 p.m. and 9 p.m., but you must sign out and back in.
+
+That's all for now. Safe voyage, and enjoy your training.</p>
+    </details>
+  </div>
+  <div id="lq"></div>
+  <button class="btn" onclick="gradeListening()">批改听力</button>
+  <p id="lOut" class="hint" style="display:none"></p>
+</section>
+
+<!-- ============ WRITING ============ -->
+<section id="writing">
+  <h2>✍️ 写作 Writing <span class="tag">自评</span></h2>
+  <p class="lead">雅思写作分 Task 1（图表）和 Task 2（议论文）。下面的自评量表请你凭真实水平打分（听/读是机器判，说/写只能自评，已标注为估算）。</p>
+
+  <h3 style="color:#fff;font-size:16px">Task 1 — 图表描述（建议 150 词，20 分钟）</h3>
+  <div class="chart">
+    <svg width="380" height="220" viewBox="0 0 380 220">
+      <rect x="40" y="180" width="40" height="0" fill="#3fa7ff"></rect>
+      <line x1="30" y1="180" x2="360" y2="180" stroke="#9aa7b4"></line>
+      <text x="60" y="200" fill="#e6edf3" font-size="11">2019</text>
+      <rect x="60" y="120" width="40" height="60" fill="#3fa7ff"></rect>
+      <text x="60" y="113" fill="#e6edf3" font-size="11">60</text>
+      <text x="120" y="200" fill="#e6edf3" font-size="11">2020</text>
+      <rect x="120" y="95" width="40" height="85" fill="#3fa7ff"></rect>
+      <text x="120" y="88" fill="#e6edf3" font-size="11">85</text>
+      <text x="180" y="200" fill="#e6edf3" font-size="11">2021</text>
+      <rect x="180" y="70" width="40" height="110" fill="#3fa7ff"></rect>
+      <text x="180" y="63" fill="#e6edf3" font-size="11">110</text>
+      <text x="240" y="200" fill="#e6edf3" font-size="11">2022</text>
+      <rect x="240" y="45" width="40" height="135" fill="#3fa7ff"></rect>
+      <text x="240" y="38" fill="#e6edf3" font-size="11">135</text>
+      <text x="300" y="200" fill="#e6edf3" font-size="11">2023</text>
+      <rect x="300" y="25" width="40" height="155" fill="#3fa7ff"></rect>
+      <text x="300" y="18" fill="#e6edf3" font-size="11">155</text>
+      <text x="30" y="15" fill="#9aa7b4" font-size="11">人数（千）· 某国国际学生数</text>
+    </svg>
+  </div>
+  <div class="q">
+    <p><span class="num">题目</span> The chart shows the number of international students (in thousands) in a country from 2019 to 2023. Summarise the information by selecting and reporting the main features, and make comparisons where relevant. Write at least 150 words.</p>
+    <label style="font-size:13px;color:var(--muted)">凭你真实写作水平自评（TA 任务回应 / CC 连贯衔接 / LR 词汇 / GRA 语法）：</label>
+    <select class="sel" id="w1">
+      <option value="4">4.0 — 偏题、错误多、词穷</option>
+      <option value="4.5">4.5</option>
+      <option value="5">5.0 — 能写但跑题/错误明显</option>
+      <option value="5.5">5.5</option>
+      <option value="6" selected>6.0 — 切题、基本准确（NSCC 线）</option>
+      <option value="6.5">6.5</option>
+      <option value="7">7.0 — 连贯、用词得体</option>
+      <option value="7.5">7.5</option>
+      <option value="8">8.0+</option>
+    </select>
+  </div>
+
+  <h3 style="color:#fff;font-size:16px">Task 2 — 议论文（建议 250 词，40 分钟）</h3>
+  <div class="q">
+    <p><span class="num">题目</span> Some people believe that learning English is essential for career success in today's world, while others think other skills matter more. Discuss both views and give your own opinion. Write at least 250 words.</p>
+    <label style="font-size:13px;color:var(--muted)">凭你真实写作水平自评：</label>
+    <select class="sel" id="w2">
+      <option value="4">4.0 — 偏题、错误多、词穷</option>
+      <option value="4.5">4.5</option>
+      <option value="5">5.0 — 能写但跑题/错误明显</option>
+      <option value="5.5">5.5</option>
+      <option value="6" selected>6.0 — 切题、基本准确（NSCC 线）</option>
+      <option value="6.5">6.5</option>
+      <option value="7">7.0 — 连贯、用词得体</option>
+      <option value="7.5">7.5</option>
+      <option value="8">8.0+</option>
+    </select>
+  </div>
+</section>
+
+<!-- ============ SPEAKING ============ -->
+<section id="speaking">
+  <h2>🗣️ 口语 Speaking <span class="tag">自评</span></h2>
+  <p class="lead">雅思口语分三部分。下面给出真实考题，请口头作答后凭流利度/词汇/语法自评。</p>
+
+  <div class="q">
+    <p><span class="num">Part 1</span> <b>介绍类</b>（每项用 2–3 句回答）<br>
+    1. What do you usually do in your free time?<br>
+    2. Do you prefer studying in the morning or at night? Why?<br>
+    3. Tell me about your hometown.</p>
+  </div>
+  <div class="q">
+    <p><span class="num">Part 2</span> <b>个人陈述</b>（准备 1 分钟，说 1–2 分钟）<br>
+    <i>Cue card:</i> Describe a person who taught you something important. You should say: who the person is, what they taught you, and why it was important to you.</p>
+  </div>
+  <div class="q">
+    <p><span class="num">Part 3</span> <b>讨论类</b>（深入回答）<br>
+    1. Why is it important for young people to learn a foreign language?<br>
+    2. Do you think schools should make English compulsory? Why or why not?</p>
+  </div>
+  <div class="q">
+    <label style="font-size:13px;color:var(--muted)">凭你刚才口头作答的真实水平自评（流利度 / 词汇量 / 语法准确度 / 发音）：</label>
+    <select class="sel" id="sp">
+      <option value="4">4.0 — 卡顿多、词少、语法错多</option>
+      <option value="4.5">4.5</option>
+      <option value="5">5.0 — 能沟通但明显不流利</option>
+      <option value="5.5">5.5</option>
+      <option value="6" selected>6.0 — 基本流利、偶有错误（NSCC 线）</option>
+      <option value="6.5">6.5</option>
+      <option value="7">7.0 — 流利、表达自然</option>
+      <option value="7.5">7.5</option>
+      <option value="8">8.0+</option>
+    </select>
+  </div>
+</section>
+
+<!-- ============ RESULT ============ -->
+<section id="result">
+  <h2>📊 结果与分析</h2>
+  <p class="lead">点「计算我的预估分数」，系统汇总四科并对照你的两个目标线。</p>
+  <button class="btn" onclick="computeAll()">计算我的预估分数</button>
+  <div id="resBox" style="display:none">
+    <div class="result-grid" id="resCards"></div>
+    <h3 style="color:#fff">🎯 目标对照</h3>
+    <table id="goalTable"></table>
+    <div class="hint" id="advice"></div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  本工具为「定位估算」用途，非官方雅思成绩。阅读/听力为客观题自动评分（换算表为近似），写作/口语为自评，仅供摸底。
+  正式分数以 IELTS 官方考试为准。 · 数据参考 NSCC / 加拿大移民局公开要求（2025–26）。
+</footer>
+
+<script>
+/* ---------- 阅读题库 ---------- */
+const rData = [
+  {type:"Heading 匹配", q:"段落 A 最合适的标题是？", opts:["i. 缓慢开始的民众识字","ii. 改变一切的发明显","iii. 深远的社会与知识影响","iv. 相比手稿的成本优势"], ans:1},
+  {type:"Heading 匹配", q:"段落 B 最合适的标题是？", opts:["i. 缓慢开始的民众识字","ii. 改变一切的发明显","iii. 深远的社会与知识影响","iv. 相比手稿的成本优势"], ans:2},
+  {type:"Heading 匹配", q:"段落 C 最合适的标题是？", opts:["i. 缓慢开始的民众识字","ii. 改变一切的发明显","iii. 深远的社会与知识影响","iv. 相比手稿的成本优势"], ans:0},
+  {type:"判断 T/F/NG", q:"在古腾堡之前，书籍既生产缓慢又价格昂贵。", opts:["True 正确","False 错误","Not Given 未提及"], ans:0},
+  {type:"判断 T/F/NG", q:"印刷机发明于意大利。", opts:["True 正确","False 错误","Not Given 未提及"], ans:1},
+  {type:"判断 T/F/NG", q:"宗教文本更易获取，在一定程度上促成了宗教改革。", opts:["True 正确","False 错误","Not Given 未提及"], ans:0},
+  {type:"判断 T/F/NG", q:"用母语写的印刷书迅速取代了拉丁文书。", opts:["True 正确","False 错误","Not Given 未提及"], ans:1},
+  {type:"选择", q:"根据文章，印刷对科学的影响是：", opts:["手稿变得更值钱","学者能更快在彼此成果上积累","教会获得更多控制权","书籍只用拉丁文印刷"], ans:1},
+  {type:"选择", q:"作者把印刷机比作互联网，因为两者都：", opts:["在德国发明","被认为塑造了现代世界","让书变便宜","需要拉丁文"], ans:1},
+  {type:"填空(≤2词)", q:"古腾堡约 1440 年在 ______ 市研制出印刷机。", fill:"mainz"},
+  {type:"填空(≤2词)", q:"早期印刷书多用 ______ 书写，限制了读者群。", fill:"latin"},
+  {type:"填空(≤2词)", q:"史学家认为印刷机的重要性可与今天的 ______ 相比。", fill:"internet"},
+];
+let rHtml="";
+rData.forEach((it,i)=>{
+  rHtml+=`<div class="q"><span class="num">${i+1}.</span>${it.q}<span class="type">${it.type}</span><br>`;
+  if(it.fill){
+    rHtml+=`<input class="fill" id="rf${i}" placeholder="用英文填写…">`;
+  }else{
+    it.opts.forEach((o,j)=>{
+      rHtml+=`<label class="opt"><input type="radio" name="r${i}" value="${j}"> ${o}</label>`;
+    });
+  }
+  rHtml+=`</div>`;
+});
+document.getElementById("rq").innerHTML=rHtml;
+
+function bandFromPct(p){
+  if(p>=0.92)return 8; if(p>=0.83)return 7.5; if(p>=0.75)return 7;
+  if(p>=0.67)return 6.5; if(p>=0.58)return 6; if(p>=0.50)return 5.5;
+  if(p>=0.42)return 5; if(p>=0.33)return 4.5; if(p>=0.25)return 4; return 3.5;
+}
+function gradeReading(){
+  let correct=0;
+  rData.forEach((it,i)=>{
+    if(it.fill){
+      const v=(document.getElementById("rf"+i).value||"").trim().toLowerCase();
+      if(v && v.includes(it.fill)){correct++; document.getElementById("rf"+i).style.borderColor="var(--good)";}
+      else document.getElementById("rf"+i).style.borderColor="var(--bad)";
+    }else{
+      const sel=document.querySelector(`input[name="r${i}"]:checked`);
+      const opts=document.getElementsByName("r"+i);
+      if(sel){
+        if(+sel.value===it.ans){correct++; opts[it.ans].parentElement.classList.add("correct");}
+        else{sel.parentElement.classList.add("wrong"); opts[it.ans].parentElement.classList.add("correct");}
+      }else{
+        opts[it.ans].parentElement.classList.add("correct");
+      }
+    }
+  });
+  const p=correct/rData.length;
+  const band=bandFromPct(p);
+  const out=document.getElementById("rOut");
+  out.style.display="block";
+  out.innerHTML=`✅ 阅读答对 <b>${correct}/12</b> → 预估分数 <b style="color:var(--accent2)">${band}</b> 分（近似换算）。`;
+  window._rBand=band;
+}
+
+/* ---------- 听力题库 ---------- */
+const lTranscript="Good morning, everyone, and welcome aboard the training vessel Sea Scholar. My name is Captain Diaz, and I'll be giving you a short safety and schedule briefing before we set sail this afternoon. First, safety. Life jackets are stored in your cabin, under the bottom bunk. You must wear them during all deck drills, which happen every Tuesday at 9 a.m. The muster station for cadets is on the main deck, near the red lifeboat. Now the daily routine. Breakfast is served from 6:30 to 7:15 in the lower mess. Classes begin at 8:00 sharp on the bridge simulator. In the afternoons, Mondays and Thursdays are navigation, Wednesdays are engine-room familiarisation, and Fridays are emergency response. A few rules. Mobile phones are not permitted on the bridge. The ship's Wi-Fi is available only between 7 p.m. and 10 p.m. in the crew lounge. The port call this week is in Halifax on Saturday; you may go ashore between 2 p.m. and 9 p.m., but you must sign out and back in.";
+const lData=[
+  {type:"选择", q:"学员的集合站（muster station）位于？", opts:["床铺下","主甲板红色救生艇附近","下层餐厅","驾驶台"], ans:1},
+  {type:"选择", q:"甲板演习（deck drills）在何时？", opts:["每周一","每周二上午 9 点","每周五","每天下午"], ans:1},
+  {type:"选择", q:"驾驶台模拟器课程几点开始？", opts:["6:30","7:15","8:00","9:00"], ans:2},
+  {type:"选择", q:"导航训练安排在哪些天？", opts:["周一和周四","周三","周五","周二"], ans:0},
+  {type:"选择", q:"船上 Wi-Fi 何时可用？", opts:["全天","晚 7 点至 10 点（船员休息室）","仅周末","早餐时"], ans:1},
+  {type:"填空", q:"本周靠港城市是 ______（一个词）。", fill:"halifax"},
+  {type:"填空", q:"所有 ______ 期间必须穿救生衣。", fill:"drills"},
+  {type:"填空", q:"手机不允许带上 ______。", fill:"bridge"},
+  {type:"填空", q:"这艘培训船名叫 ______。", fill:"sea scholar"},
+  {type:"填空", q:"上岸必须在登记处 ______ out 和 back in。", fill:"sign"},
+];
+let lHtml="";
+lData.forEach((it,i)=>{
+  lHtml+=`<div class="q"><span class="num">${i+1}.</span>${it.q}<span class="type">${it.type}</span><br>`;
+  if(it.fill){
+    lHtml+=`<input class="fill" id="lf${i}" placeholder="用英文填写…">`;
+  }else{
+    it.opts.forEach((o,j)=>{ lHtml+=`<label class="opt"><input type="radio" name="l${i}" value="${j}"> ${o}</label>`;});
+  }
+  lHtml+=`</div>`;
+});
+document.getElementById("lq").innerHTML=lHtml;
+
+let spk=null;
+function playAudio(){
+  if(!('speechSynthesis' in window)){alert("当前浏览器不支持语音朗读，请使用文字稿作答。");return;}
+  stopAudio();
+  spk=new SpeechSynthesisUtterance(lTranscript);
+  spk.lang="en-US"; spk.rate=0.92; spk.pitch=1;
+  window.speechSynthesis.speak(spk);
+}
+function stopAudio(){ if(window.speechSynthesis) window.speechSynthesis.cancel(); }
+
+function gradeListening(){
+  let correct=0;
+  lData.forEach((it,i)=>{
+    if(it.fill){
+      const v=(document.getElementById("lf"+i).value||"").trim().toLowerCase();
+      if(v && v.includes(it.fill)){correct++; document.getElementById("lf"+i).style.borderColor="var(--good)";}
+      else document.getElementById("lf"+i).style.borderColor="var(--bad)";
+    }else{
+      const sel=document.querySelector(`input[name="l${i}"]:checked`);
+      const opts=document.getElementsByName("l"+i);
+      if(sel){
+        if(+sel.value===it.ans){correct++; opts[it.ans].parentElement.classList.add("correct");}
+        else{sel.parentElement.classList.add("wrong"); opts[it.ans].parentElement.classList.add("correct");}
+      }else{ opts[it.ans].parentElement.classList.add("correct"); }
+    }
+  });
+  const p=correct/lData.length;
+  const band=bandFromPct(p);
+  const out=document.getElementById("lOut");
+  out.style.display="block";
+  out.innerHTML=`✅ 听力答对 <b>${correct}/10</b> → 预估分数 <b style="color:var(--accent2)">${band}</b> 分（近似换算）。`;
+  window._lBand=band;
+}
+
+/* ---------- 汇总 ---------- */
+function roundHalf(x){
+  return Math.round(x*2)/2;
+}
+function computeAll(){
+  const r=window._rBand, l=window._lBand;
+  const w=((+document.getElementById("w1").value)+(+document.getElementById("w2").value))/2;
+  const s=+document.getElementById("sp").value;
+  if(r==null||l==null){alert("请先完成「批改阅读」和「批改听力」再计算。");return;}
+  const overall=roundHalf((r+l+w+s)/4);
+  const cards=[
+    ["阅读 Reading",r],["听力 Listening",l],["写作 Writing",w],["口语 Speaking",s]
+  ];
+  let html="";
+  cards.forEach(c=>{
+    const cls=c[1]>=6?"good":(c[1]>=5?"warn":"bad");
+    html+=`<div class="card"><div class="lab">${c[0]}</div><div class="val ${cls}">${c[1]}</div><div class="sub">${c[1]>=6?"达标 NSCC 线":(c[1]>=5?"接近":"偏低")}</div></div>`;
+  });
+  html+=`<div class="card"><div class="lab">综合预估 Overall</div><div class="val ${overall>=6?'good':(overall>=5?'warn':'bad')}">${overall}</div><div class="sub">${overall>=6?"达 NSCC / CLB7 线":(overall>=5?"距 6.0 一步之遥":"需系统补习")}</div></div>`;
+  document.getElementById("resCards").innerHTML=html;
+
+  // 目标对照表
+  const targets=[
+    ["NSCC 入学",6.0,6.0,6.0,6.0,"四项均须 ≥6.0（含口语/写作）"],
+    ["CLB 7 (PR 入门)",6.0,6.0,6.0,6.0,"= NSCC 线，PR 基础门槛"],
+    ["CLB 9 (PR 高分)",8.0,7.0,7.0,7.0,"移民打分利器（澳/加）"]
+  ];
+  let t=`<tr><th>目标</th><th>听</th><th>读</th><th>写</th><th>说</th><th>说明</th></tr>`;
+  targets.forEach(tg=>{
+    const vals=[l,r,w,s];
+    let cells="";
+    for(let k=0;k<4;k++){
+      const ok=vals[k]>=tg[k+1];
+      cells+=`<td><span class="pill ${ok?'ok':'no'}">${vals[k]} / ${tg[k+1]}</span></td>`;
+    }
+    t+=`<tr><td><b>${tg[0]}</b></td>${cells}<td style="color:var(--muted);font-size:12px">${tg[5]}</td></tr>`;
+  });
+  document.getElementById("goalTable").innerHTML=t;
+
+  // 建议
+  const weak=cards.filter(c=>c[1]<6).map(c=>c[0].split(" ")[0]);
+  let adv=`<b>给你的摸底结论：</b><br>`;
+  adv+=`综合预估约 <b>${overall}</b> 分。对照你高考英语 110（约雅思起步 5.0–5.5），这个结果基本吻合——<b>阅读/听力（机考客观题）通常是你的强项</b>，真正的台阶在 <b>口语和写作</b>（高考不考，零基础起步）。<br><br>`;
+  if(weak.length){
+    adv+=`目前低于 6.0 的科目：<b>${weak.join("、")}</b>。优先补这些——它们正是 NSCC 入学（四项≥6.0）和将来 CLB 7 的硬门槛。<br>`;
+  }else{
+    adv+=`四科都已 ≥6.0，开局不错！下一步把听/读冲 7+、写/说稳 6.5，就能摸到 CLB 9 高分区。<br>`;
+  }
+  adv+=`<br><b>三年爬坡计划（大一→大三）：</b><br>
+  ① 大一：每日听力+口语输入（播客/跟读），把口语从 0 拉到 5.5–6；词汇过四级+雅思核心。<br>
+  ② 大二：系统备考，阅读/听力冲 7，写作学 Task 1/2 模板；顺手把 Maritime English（IMO SMCP）揉进训练。<br>
+  ③ 大三：模考稳定在 6.5+，冲 NSCC 直录（6.0）/ 或边跑船边把雅思考到 CLB 7–9。<br>
+  <span style="color:var(--muted)">注：NSCC 有 EAP 语言班兜底，一次没到 6.0 可先读语言再进专业，不是一考定生死。</span>`;
+  document.getElementById("advice").innerHTML=adv;
+  document.getElementById("resBox").style.display="block";
+  document.getElementById("resBox").scrollIntoView({behavior:"smooth"});
+}
+</script>
+</body>
+</html>

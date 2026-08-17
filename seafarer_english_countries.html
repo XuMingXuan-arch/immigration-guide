@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>航海技术 / 国际海员 · 英语国家技术移民路径（大专背景定制版）</title>
+<style>
+  :root{
+    --bg:#0f172a; --card:#1e293b; --card2:#172033; --line:#334155;
+    --txt:#e2e8f0; --mut:#94a3b8; --acc:#38bdf8; --acc2:#fbbf24;
+    --good:#34d399; --warn:#f87171; --mid:#fbbf24;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:linear-gradient(160deg,#0b1120,#0f172a 40%,#111c30);color:var(--txt);
+    line-height:1.7;padding:0 0 80px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  header{padding:54px 22px 40px;text-align:center;background:
+    radial-gradient(900px 300px at 50% -40px,rgba(56,189,248,.18),transparent)}
+  header h1{font-size:30px;font-weight:800;letter-spacing:.5px}
+  header .sub{color:var(--mut);margin-top:12px;font-size:15px}
+  .tag{display:inline-block;margin-top:16px;padding:6px 14px;border:1px solid var(--line);
+    border-radius:999px;color:var(--acc);font-size:13px;background:rgba(56,189,248,.08)}
+  nav{position:sticky;top:0;z-index:20;background:rgba(15,23,42,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);padding:10px 0}
+  nav .wrap{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+  nav a{color:var(--mut);text-decoration:none;font-size:13px;padding:6px 12px;border-radius:8px}
+  nav a:hover{color:var(--acc);background:rgba(56,189,248,.1)}
+  section{margin-top:42px}
+  h2{font-size:22px;border-left:4px solid var(--acc);padding-left:12px;margin-bottom:18px}
+  h3{font-size:17px;color:var(--acc);margin:22px 0 10px}
+  p,li{color:var(--txt);font-size:15px}
+  .lead{color:var(--mut);font-size:15px;margin-bottom:10px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin:16px 0}
+  .card2{background:var(--card2)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+  th{background:rgba(56,189,248,.1);color:var(--acc);font-weight:600}
+  tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+  .pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:600}
+  .p-good{background:rgba(52,211,153,.16);color:var(--good)}
+  .p-mid{background:rgba(251,191,36,.16);color:var(--mid)}
+  .p-bad{background:rgba(248,113,113,.16);color:var(--warn)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:14px 0}
+  .gcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .gcard h4{font-size:15px;color:var(--acc2);margin-bottom:6px}
+  .gcard .big{font-size:26px;font-weight:800;color:var(--txt)}
+  .gcard small{color:var(--mut)}
+  .note{border-left:3px solid var(--acc2);background:rgba(251,191,36,.07);padding:12px 16px;
+    border-radius:0 10px 10px 0;margin:14px 0;font-size:14px;color:#fde68a}
+  .danger{border-left:3px solid var(--warn);background:rgba(248,113,113,.07);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0;font-size:14px;color:#fecaca}
+  .goodbox{border-left:3px solid var(--good);background:rgba(52,211,153,.07);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0;font-size:14px;color:#bbf7d0}
+  code{background:rgba(56,189,248,.12);color:var(--acc);padding:1px 7px;border-radius:5px;font-size:13px}
+  .toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:18px}
+  .toc a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:12px 14px;color:var(--txt);text-decoration:none;font-size:14px}
+  .toc a:hover{border-color:var(--acc);color:var(--acc)}
+  footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+  .step{display:flex;gap:14px;margin:14px 0;align-items:flex-start}
+  .step .n{flex:0 0 34px;height:34px;border-radius:50%;background:var(--acc);color:#06283b;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px}
+  .step .c{flex:1}
+  .flag{font-size:20px;margin-right:6px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>航海技术 / 国际海员 · 英语国家技术移民路径</h1>
+    <div class="sub">面向「准大一 · 大专（航海技术）· 未来国际海员」的定制版 · 基于 2025–2026 最新政策核实</div>
+    <div class="tag">核心逻辑：船舶驾驶员 / 船长 = 技术移民职业，海龄本身可折算移民分数</div>
+  </header>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#verdict">一句话结论</a>
+    <a href="#mechanic">海龄怎么变分数</a>
+    <a href="#au">🇦🇺 澳大利亚</a>
+    <a href="#nz">🇳🇿 新西兰</a>
+    <a href="#ca">🇨🇦 加拿大</a>
+    <a href="#uk">🇬🇧 英国</a>
+    <a href="#us">🇺🇸 美国</a>
+    <a href="#sg">🇸🇬 新加坡</a>
+    <a href="#timeline">出海→PR 时间线</a>
+    <a href="#plan">行动清单</a>
+      <a href="#risk">风险与免责</a>
+      <a href="#routes">路线A vs B</a>
+      <a href="#after">移民后还做海员吗</a>
+      <a href="#ca-routeb">加拿大学院路线B</a>
+      <a href="#routea-timeline">路线A·年龄节点</a>
+    </div>
+  </nav>
+
+<div class="wrap">
+
+  <div class="card">
+    <h3 style="margin-top:0">为什么这份表对你比"普通大专生"乐观</h3>
+    <p class="lead">你是<strong>航海技术大专 + 未来国际海员</strong>。普通大专生受限，是因为多数技术移民默认面向本科及以上。但你不一样：</p>
+    <ul>
+      <li><strong>海员走 STCW 公约体系（按资历/证书，不按学历）</strong>。你拿大专毕业证 → 参加海船船员适任考试 → 拿到 <code>CoC（Certificate of Competency，适任证书）</code> → 就能从三副（3/O）起步跑国际航线。晋升靠海龄+考试，不是学位。</li>
+      <li><strong>船舶驾驶员 / 船长直接列在各国技术移民清单上</strong>（澳 ANZSCO 231213/231214、新西兰同码、加拿大 NOC 72602、英国 SOC 3512）。这是"职业红利"，不是"学历红利"。</li>
+      <li><strong>你的海龄 = 移民分数弹药</strong>。在澳/加，作为甲板船员（deck officer）的海上服务年限，直接按"海外技术工作经验"计分。</li>
+    </ul>
+    <div class="goodbox">结论：升本不是出海的硬门槛，是可选的加分项。最值得押注的是<strong>澳大利亚 / 新西兰 / 加拿大</strong>——你的职业正好在它们的技术清单上。</div>
+  </div>
+
+  <section id="verdict">
+    <h2>一句话结论：英语国家优先级排序</h2>
+    <table>
+      <thead><tr><th>国家</th><th>海员职业代码</th><th>大专友好度</th><th>关键路径</th><th>定居难度</th></tr></thead>
+      <tbody>
+        <tr><td><span class="flag">🇦🇺</span>澳大利亚</td><td>ANZSCO 231213/231214</td><td><span class="pill p-good">高</span></td><td>AMSA 技能评估 + 189/190/491 打分</td><td>中</td></tr>
+        <tr><td><span class="flag">🇳🇿</span>新西兰</td><td>ANZSCO 231213/231214</td><td><span class="pill p-good">高</span></td><td>Transport Work to Residence（24个月）→ 居留</td><td>中</td></tr>
+        <tr><td><span class="flag">🇨🇦</span>加拿大</td><td>NOC 2021 72602</td><td><span class="pill p-good">高</span></td><td>EE 联邦技术 + 省提名（海洋省）</td><td>中</td></tr>
+        <tr><td><span class="flag">🇬🇧</span>英国</td><td>SOC 3512</td><td><span class="pill p-mid">中</span></td><td>Skilled Worker 担保 + 雇主</td><td>高（海龄不计居）</td></tr>
+        <tr><td><span class="flag">🇸🇬</span>新加坡</td><td>岸基海事岗</td><td><span class="pill p-mid">中低</span></td><td>EP/S Pass（大专在COMPASS不得分）</td><td>高（PR难）</td></tr>
+        <tr><td><span class="flag">🇺🇸</span>美国</td><td>—</td><td><span class="pill p-bad">低</span></td><td>EB-2 NIW（仅资深船长/轮机长）</td><td>极高</td></tr>
+      </tbody>
+    </table>
+    <p class="lead">排序依据：海员职业是否在技术/紧缺清单、大专文凭能否拿分、海龄能否折算、以及"海龄是否计入居留时间"。</p>
+  </section>
+
+  <section id="mechanic">
+    <h2>核心机制：你的海龄怎么变成移民分数</h2>
+    <p class="lead">这是整份文档最关键的一节。理解它，你就明白为什么"先出海攒海龄"和"移民"是同一件事。</p>
+    <div class="card">
+      <h3 style="margin-top:0">澳大利亚（打分制，海龄直接计分）</h3>
+      <table>
+        <thead><tr><th>计分项</th><th>你的情况</th><th>分数</th></tr></thead>
+        <tbody>
+          <tr><td>海外技术工作经验（海龄）</td><td>3–4 年 = 5；5–7 年 = 10；8+ 年 = 15</td><td>最高 15</td></tr>
+          <tr><td>学历</td><td>大专航海技术文凭（被认可）= 10；升本后 = 15</td><td>10–15</td></tr>
+          <tr><td>英语（雅思）</td><td>Proficient 7 = 10；Superior 8 = 20</td><td>10–20</td></tr>
+          <tr><td>年龄</td><td>25–32 岁 = 30（黄金窗口）</td><td>最高 30</td></tr>
+          <tr><td>州担保</td><td>190 州担 +5；491 偏远 +15</td><td>5–15</td></tr>
+        </tbody>
+      </table>
+      <p class="lead">门槛：EOI 至少 65 分入池；实际获邀普遍 85+。一名 28 岁、雅思 8、大专文凭、5 年海龄、拿 491 偏远担保的海员，大致可到 <strong>30+20+10+15+15 = 90 分</strong>，非常有竞争力。</p>
+    </div>
+    <div class="card card2">
+      <h3 style="margin-top:0">加拿大（EE 联邦技术，海龄计入海外经验）</h3>
+      <p>甲板船员属 NOC TEER 2（技术类），海上服务年限按"海外技术工作经验"计分。综合排名（CRS）同样看重年龄（20–29 满分）、语言和加拿大经验。加拿大还额外有<strong>省提名（PNP）</strong>——新斯科舍、纽芬兰、BC 等海洋省份对海员有明确需求，省提名直接 +600 分，几乎锁定 PR。</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">新西兰（6 分制 + 专门海员通道）</h3>
+      <p>6 分制：大专文凭（NZQF 4–6 级）算 3 分，再用本地技术工作经验或收入补齐到 6 分。更直接的是 <strong>Transport Sector Work to Residence</strong>：在新西兰做海员满 24 个月（时薪 ≥ NZ$35，2026/3 起）→ 直接申请居留，无需先凑满分数。</p>
+    </div>
+    <div class="note">⚠️ 重要前提：海龄要"算分"，必须是<strong>取得 CoC 之后的、与提名职业相关的技术海上服务</strong>，且需提供公司证明信（船名、IMO 号、总吨、职位、上下船日期）——也就是你的<strong>船员服务簿（Discharge Book）</strong>和船东证明，从第一天起就要保管好。</div>
+  </section>
+
+  <section id="au">
+    <h2><span class="flag">🇦🇺</span>澳大利亚 · 最推荐</h2>
+    <div class="grid">
+      <div class="gcard"><h4>职业代码</h4><div class="big">231213 / 231214</div><small>Ship's Master / Ship's Officer（技能等级 1–2）</small></div>
+      <div class="gcard"><h4>评估机构</h4><div class="big">AMSA</div><small>澳大利亚海事安全局做移民技能评估</small></div>
+      <div class="gcard"><h4>清单状态</h4><div class="big">短缺</div><small>231214 全国短缺(S)；Master 在 ROL 区域清单</small></div>
+    </div>
+    <h3>路径</h3>
+    <ul>
+      <li><strong>技能评估（必经）</strong>：向 AMSA 申请 migration skills assessment。需持有有效的 STCW CoC（如 Master Unlimited II/2、Chief Mate II/2、Deck Watchkeeper II/1）、有效护照、培训合格证、船员服务簿、船东海历证明信。</li>
+      <li><strong>关键门槛</strong>：STCW 证书须由与澳洲有互认协议的国家签发。中国为 STCW 缔约国（IMO 白名单），证书通常被认可，但需逐案评估 sea service 是否满足澳洲要求。</li>
+      <li><strong>签证</strong>：189 独立技术（永居，无需雇主/州担）、190 州担保（永居，+5 分）、491 偏远地区（临居，+15 分，3 年后转 191 永居）。Ship's Master 在 ROL 上，主走 491/494 区域类。</li>
+      <li><strong>大专适配</strong>：文凭被认可即拿 10 分教育分；雅思 8 拿 20 分英语分——英语是你职业刚需，双重收益。</li>
+    </ul>
+    <div class="goodbox">优势：可<strong>离岸申请</strong> 189/190（不必先入境工作）；海员职业在短缺清单，竞争压力小于软件/会计。</div>
+  </section>
+
+  <section id="nz">
+    <h2><span class="flag">🇳🇿</span>新西兰 · 海员专属通道</h2>
+    <div class="grid">
+      <div class="gcard"><h4>职业代码</h4><div class="big">231213</div><small>Ship's Master（Deck Hand 899211 也在列）</small></div>
+      <div class="gcard"><h4>专属通道</h4><div class="big">24 个月</div><small>Transport Work to Residence</small></div>
+      <div class="gcard"><h4>薪资门槛</h4><div class="big">NZ$35/h</div><small>2026/3/9 起（时薪中位数）</small></div>
+    </div>
+    <h3>路径</h3>
+    <ul>
+      <li><strong>Transport Sector Work to Residence</strong>：在新西兰 accredited employer 做海员岗满 24 个月（全职 ≥30h/周，永久或 ≥12 个月合同），时薪达门槛 → 直接申请居留。可连同家属。</li>
+      <li><strong>证书要求</strong>：须持 STCW CoC（500 总吨以上船舶的船长职责）且被 Maritime New Zealand 认可，或 Skipper Restricted Limits CoC（500GT/3000GT 背书）。</li>
+      <li><strong>备选 6 分制</strong>：大专文凭 3 分 + 新西兰技术工作经验（1 年=1 分…最高 3 分）+ 收入分，凑满 6 分走 Skilled Migrant。</li>
+    </ul>
+    <div class="note">⚠️ 必须先拿到新西兰的工作（AEWV 工签）并在新西兰实际工作 24 个月——海外海龄<strong>不能直接</strong>换居留，但能帮你拿到新西兰雇主的 offer 和本地经验。所以节奏是：先攒海外海龄提升资历 → 应聘新西兰船东/海事公司 → 本地 24 个月 → PR。</div>
+  </section>
+
+  <section id="ca">
+    <h2><span class="flag">🇨🇦</span>加拿大 · 省提名红利</h2>
+    <div class="grid">
+      <div class="gcard"><h4>职业代码</h4><div class="big">NOC 72602</div><small>Deck officers, water transport（TEER 2）</small></div>
+      <div class="gcard"><h4>证书</h4><div class="big">Transport Canada</div><small>需换成加方 CoC</small></div>
+      <div class="gcard"><h4>年薪参考</h4><div class="big">C$108k</div><small>BC 省 median 年薪</small></div>
+    </div>
+    <h3>路径</h3>
+    <ul>
+      <li><strong>外国证书认可</strong>：需 Transport Canada 评估你的海外 CoC 与海历，补课程/考试后换发加方证书。这是执业前提。</li>
+      <li><strong>联邦快速通道（EE）</strong>：FSW 类别按 CRS 打分，海外甲板船员经验计入技术工作经验；20–29 岁、雅思高分、加拿大经验最占优。</li>
+      <li><strong>省提名（PNP）·最强杠杆</strong>：新斯科舍（NS）、纽芬兰与拉布拉多（NL）、BC 等海洋省份有针对海员的移民需求，省提名 +600 分，几乎直接锁定 PR。</li>
+      <li><strong>大专适配</strong>：NOC TEER 2 属技术职业，大专+CoC 即符合；EE 学历分大专不如本科，但省提名可 bypass 分数焦虑。</li>
+    </ul>
+    <div class="goodbox">加拿大对"有 CoC + 海历"的海员相当友好，且省提名是确定性最高的路径之一。</div>
+  </section>
+
+  <section id="uk">
+    <h2><span class="flag">🇬🇧</span>英国 · 中等，但海龄不计居留</h2>
+    <div class="grid">
+      <div class="gcard"><h4>职业代码</h4><div class="big">SOC 3512</div><small>Ship and hovercraft officers（中等技能）</small></div>
+      <div class="gcard"><h4>薪资门槛</h4><div class="big">£58,300</div><small>Going Rate；新入职 £39,100</small></div>
+      <div class="gcard"><h4>担保</h4><div class="big">需雇主</div><small>Skilled Worker 担保</small></div>
+    </div>
+    <h3>路径</h3>
+    <ul>
+      <li><strong>Skilled Worker 签证</strong>：需英国雇主担保，SOC 3512 不在移民薪资清单（无短缺折扣），须达到 Going Rate。</li>
+      <li><strong>永居（ILR）计算特殊</strong>：英国对海员有"连续居留"特殊规则——<strong>在船上海外航行的时间通常不计为英国居留时间</strong>。要凑满 5 年定居期，需以英国为base、在岸时间达标（或在特定英籍船舶上有规定安排）。</li>
+    </ul>
+    <div class="danger">对长期跑国际航线、人不在英国上岸的海员，英国永居的时间时钟很难走满。除非你转到英国船东的岸基或近海岗位，否则英国不是最优。</div>
+  </section>
+
+  <section id="us">
+    <h2><span class="flag">🇺🇸</span>美国 · 普通海员最难</h2>
+    <ul>
+      <li><strong>C1/D 船员签证</strong>：是非移民签证，只许登轮工作，<strong>没有转绿卡路径</strong>。</li>
+      <li><strong>EB-2 NIW（国家利益豁免）</strong>：面向<strong>资深船长 / 轮机长</strong>（Master Mariner、Chief Engineer Unlimited），以"美国海事高级船员严重短缺=国家利益"为由自我申请，无需雇主。但门槛高，需管理级证书+显著成就。</li>
+      <li><strong>执业障碍</strong>：外国 STCW 不被 USCG 直接承认，需重新评估、补训、考试换发 MMC（Merchant Mariner Credential）才能上美国旗船舶。</li>
+    </ul>
+    <div class="danger">结论：作为刚起步的大专三副，美国基本不是现实选项。除非你未来成长为管理级船员且有杰出履历，否则不必把美国列为早期目标。</div>
+  </section>
+
+  <section id="sg">
+    <h2><span class="flag">🇸🇬</span>新加坡 · 海事枢纽但定居难</h2>
+    <ul>
+      <li><strong>海员多持 Work Permit（WP）</strong>：面向一线外籍劳工，<strong>无 PR 路径</strong>，且须住员工宿舍。</li>
+      <li><strong>甲板军官走 S Pass / Employment Pass</strong>：EP 要求月薪 ≥ S$5,600（非金融，2025），且 COMPASS 需满 40 分。<strong>大专学历在 COMPASS 中不得分</strong>，必须有本科学历或极高薪资才稳。</li>
+      <li><strong>PR 难度大</strong>：新加坡 PR 审批趋严，海员岗（尤其 WP）几乎不被视作定居导向。</li>
+    </ul>
+    <div class="note">可作为"先积累国际经验、赚新加坡薪资"的中转站，但不建议作为最终移民目的地。</div>
+  </section>
+
+  <section id="timeline">
+    <h2>时间线：出海 → 转岸基 → PR</h2>
+    <div class="card">
+      <div class="step"><div class="n">1</div><div class="c"><strong>在校（大一–大三）</strong>：打牢适任考试科目（航海学、气象、值班等）；把 Maritime English（IMO SMCP）练到上岗水平；规划升本（海事类专升本函授，边跑船边拿）。</div></div>
+      <div class="step"><div class="n">2</div><div class="c"><strong>毕业考证（≈21–22 岁）</strong>：拿中国大专毕业证 + 三副 CoC，登国际航线船，从 3/O 起步。开始<strong>规范记录船员服务簿</strong>与船东海历证明。</div></div>
+      <div class="step"><div class="n">3</div><div class="c"><strong>攒海龄（22–28 岁）</strong>：三副→二副，累计 3–8 年海龄。这段时间同时：维持英语、完成专升本、锁定目标国职业代码（ANZSCO 231214 等）。</div></div>
+      <div class="step"><div class="n">4</div><div class="c"><strong>技能评估 + 递交（25–32 岁黄金窗口）</strong>：向 AMSA / Transport Canada / Maritime NZ 申请评估（用 CoC+海历）；同时考雅思冲 8。澳可离岸申 189/190/491；加走 EE+PNP；新西兰先拿 AEWV 入职再走 24 个月通道。</div></div>
+      <div class="step"><div class="n">5</div><div class="c"><strong>获 PR 后转岸基（或继续航海）</strong>：PR 到手即开始累计居留时间。若想进一步安稳，可转入目标国航运公司、港口、验船机构等陆上岗位——这时海龄+证书=你的硬通货。</div></div>
+    </div>
+    <div class="note">⚠️ 贯穿全程的铁律：<strong>在船上跑国际航线的时间，在绝大多数国家都不计入"居留时间"</strong>。PR 的居留时钟，从你持可居留签证在该国岸上生活才开始走。所以"出海攒海龄"解决的是<strong>分数/资历</strong>，"上岸生活"解决的是<strong>居留年限</strong>——两步不能混为一谈。</div>
+  </section>
+
+  <section id="plan">
+    <h2>行动清单（从现在到大三）</h2>
+    <div class="grid">
+      <div class="gcard"><h4>① 英语即职业</h4><p>海员必须过 Maritime English（IMO SMCP）。学英语和跑船是同一件事，动力拉满。目标雅思 7–8。</p></div>
+      <div class="gcard"><h4>② 锁定 CoC</h4><p>在校把适任考试科目打牢，毕业即考证。这是你全部移民逻辑的起点。</p></div>
+      <div class="gcard"><h4>③ 海龄=弹药</h4><p>越早出海、越多海龄，未来移民打分越硬。规范保存服务簿与船东证明。</p></div>
+      <div class="gcard"><h4>④ 边跑船边升本</h4><p>选海事类专升本函授，别停下海龄积累。本科在澳/加多拿 5 分、在新西兰 COMPASS/6分制更稳。</p></div>
+      <div class="gcard"><h4>⑤ 盯职业代码</h4><p>熟记 ANZSCO 231213/231214、NOC 72602、SOC 3512。申请前以官网现行版为准。</p></div>
+      <div class="gcard"><h4>⑥ 优先押注</h4><p>澳/新/加为第一梯队；英需转岸基；美/新仅作中转或资深后选项。</p></div>
+    </div>
+  </section>
+
+  <section id="risk">
+    <h2>风险、避坑与免责</h2>
+    <div class="danger">
+      <strong>中介警示</strong>：凡是"保过移民""大专直拿 PR"的承诺，基本是陷阱。技术移民没有保过，只有满足分数+清单+材料真实。
+    </div>
+    <div class="note">
+      <strong>政策时效性</strong>：本文职业代码、薪资门槛、分数表均基于 2025–2026 年公开核实数据。移民政策变动频繁（尤其各国年度清单与分数线），<strong>正式申请前务必以各国移民局/海事局官网现行版本为准</strong>：
+      <ul style="margin-top:8px">
+        <li>澳大利亚：Department of Home Affairs + AMSA（技能评估）</li>
+        <li>新西兰：Immigration New Zealand + Maritime NZ</li>
+        <li>加拿大：Immigration, Refugees and Citizenship Canada + Transport Canada</li>
+        <li>英国：GOV.UK (Skilled Worker) ；美国：USCIS + USCG；新加坡：MOM</li>
+      </ul>
+    </div>
+    <div class="goodbox">
+      <strong>给你的定心丸</strong>：你担心的"大专受限"，在航海技术这个专业上被大幅抵消——因为你的职业在技术清单上、海龄能直接计分。真正的竞争变量是<strong>英语 + 海龄 + 年龄窗口</strong>，这三点你从大一就能开始攒。起步阶段，把英语和适任考试抓好，就是最好的移民规划。
+    </div>
+  </section>
+
+  <section id="routes">
+    <h2>路线 A vs B（澳大利亚 / 新西兰 / 加拿大对比）</h2>
+    <p class="lead">你已选 A（不留学·低成本）和 B（留学·中成本），目的地在澳/新/加之间。下面把两条路线在三国的落地方式并排给你，方便横向挑。</p>
+
+    <h3>路线 A · 不留学（用国内海员资历走技术移民）</h3>
+    <p>前文 <a href="#au" style="color:var(--acc)">澳</a> / <a href="#nz" style="color:var(--acc)">新</a> / <a href="#ca" style="color:var(--acc)">加</a> 三节已详述，这里只速览：国内读完大专 → 考下三副 CoC → 跑国际船攒海龄 → 向 AMSA / Maritime NZ / Transport Canada 做技能评估 → 走 189/190/491（澳）、Transport Work to Residence 24 个月（新）、EE + 海洋省 PNP（加）。<strong>花费仅国内学费，是成本最低的解。</strong></p>
+
+    <h3>路线 B · 留学（去该国读航海/海事相关，再转 PR）</h3>
+    <div class="card">
+      <table>
+        <thead><tr><th>国家</th><th>代表院校 / 专业</th><th>国际生学费(年)</th><th>毕业后工签</th><th>转 PR 衔接</th><th>全部花费估(学费+生活)</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="flag">🇨🇦</span>加拿大</td>
+            <td>NSCC 航海技术、Georgian 轮机技师、MUN Marine Institute  nautical science</td>
+            <td>学院 CAD 12–21k/年；本科略高</td>
+            <td>PGWP 1–3 年（按学制）</td>
+            <td>加拿大经验 + EE + 海洋省 PNP（+600）</td>
+            <td><strong>约 42–75 万 RMB</strong>（学院文凭较低）</td>
+          </tr>
+          <tr>
+            <td><span class="flag">🇳🇿</span>新西兰</td>
+            <td>NZ Maritime School（Manukau/Toi Ohomai）等海事文凭</td>
+            <td>NZD 22–35k/年</td>
+            <td>Post-study work visa</td>
+            <td>本地 24 个月 → Transport Work to Residence；或 6 分制</td>
+            <td><strong>约 65–85 万 RMB</strong></td>
+          </tr>
+          <tr>
+            <td><span class="flag">🇦🇺</span>澳大利亚</td>
+            <td>AMC（塔斯马尼亚大学）航海/轮机本科或文凭</td>
+            <td>AUD 35–45k/年</td>
+            <td>485 工签（本科 2 年 / VET 18 个月）</td>
+            <td>凑分走 189/190/491</td>
+            <td><strong>约 100–150 万 RMB</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="lead">汇率按 approx CAD 5.3 / NZD 4.3 / AUD 4.8 折算，仅为量级估算，<strong>以院校官网当年学费 + 当地生活费为准</strong>。</p>
+    </div>
+
+    <div class="goodbox">路线 B 里，<strong>加拿大是英语国家中"留学→PR"性价比最高</strong>的：学院学费最低、PGWP 直接给工签、海洋省 PNP 对海员有明确需求，加拿大本地学历+经验还能大幅拉高 EE 分数。澳/新留学成本高，且 PR 仍要自己凑分或熬本地工龄。</div>
+
+    <h3>决策矩阵（对着你的预算挑）</h3>
+    <table>
+      <thead><tr><th>你的预算 / 偏好</th><th>选哪条</th><th>落地国家建议</th></tr></thead>
+      <tbody>
+        <tr><td>几乎不想花留学钱，肯用时间换</td><td><span class="pill p-good">路线 A</span></td><td>澳（离岸 189/190）或 加（EE+PNP）最稳；新需先有本地工作</td></tr>
+        <tr><td>能拿出 42–75 万 RMB，想更稳落地</td><td><span class="pill p-good">路线 B · 加拿大</span></td><td>加（学院 nautical/marine → PGWP → PNP）</td></tr>
+        <tr><td>家底厚、执念澳/新</td><td><span class="pill p-mid">路线 B · 澳/新</span></td><td>澳/新（成本高，需自备分数/本地工龄）</td></tr>
+        <tr><td>想冲"近零成本"但难抢</td><td><span class="pill p-mid">赞助见习生</span></td><td>英/希/新等国际船东 cadetship（带薪+免培训费）</td></tr>
+      </tbody>
+    </table>
+    <div class="note">提醒：路线 A 的"低成本"是用<strong>时间</strong>换的——你要先在国内跑几年船攒海龄和英语；路线 B 是用<strong>钱</strong>买更干净的落地。两条都绕不开英语（雅思 7–8）和 CoC。</div>
+  </section>
+
+  <section id="after">
+    <h2>移民后，还必须做海员吗？</h2>
+    <p class="lead">这是你问的关键问题，直接给结论：<strong>拿到 PR / 入籍后，没有任何强制要求你继续做海员。海事背景只是你"进门"的门票，进门之后做什么完全自由。</strong></p>
+
+    <h3>PR 之后的三种走向</h3>
+    <div class="grid">
+      <div class="gcard"><h4>① 继续航海</h4><p>保留 CoC + 海龄，上国际船当驾驶员/船长，收入最高，但长期离家、海龄仍不计居留（不过你已拿 PR，无所谓了）。</p></div>
+      <div class="gcard"><h4>② 转岸基·相关行业</h4><p>进港口物流、船舶管理公司、验船机构、引航站、海事法务、海上风电等。<strong>仍"相关"，但能上岸陪家人</strong>，是多数海员移民后的真实归宿。</p></div>
+      <div class="gcard"><h4>③ 完全转行</h4><p>运输/物流、贸易、技工、甚至创业——PR 后身份自由，法律不限制。很多人拿身份后就此上岸过普通生活。</p></div>
+    </div>
+
+    <h3>两个必须知道的实操点</h3>
+    <ul>
+      <li><strong>CoC 是"国别性"的</strong>：比如 AMSA 的 CoC 只在澳大利亚有效，新西兰/加拿大各认各的。如果你停航不再跑船，证书会因缺海龄/未做 refresh 培训而<strong>失效</strong>。想保留"随时能开船"的选项就维持它；确定不干了，随它过期即可，不影响 PR。</li>
+      <li><strong>PR 获批时 vs 获批后</strong>：递交/获批阶段通常要求你"有意向在提名职业（海员）工作"，但<strong>拿到 PR 之后没有任何强制</strong>。用海事拿到身份、之后转行，是普遍且合法的操作。</li>
+    </ul>
+    <div class="goodbox">对你而言最现实的剧本：用海员身份拿到 PR → 转去岸基海事岗（港口/船管/验船）真正定居，配偶工作、孩子上学都安稳；若哪天想回船上赚快钱，CoC 续上就能再上船。身份给你的是<strong>选择权</strong>，不是枷锁。</div>
+  </section>
+
+  <section id="ca-routeb">
+    <h2>路线 B 深挖 · 加拿大"学院 nautical → PGWP → PNP"逐年时间表与院校清单</h2>
+    <p class="lead">你在路线 B 里最划算的落点是<strong>加拿大学院（College）的航海/海事文凭</strong>：学费最低、毕业直接给 3 年工签（PGWP）、海洋省份对海员有明确的省提名（PNP）需求。下面把院校和逐年节奏给你拆开。</p>
+
+    <h3>院校清单（国际生 · 2025–26 核实）</h3>
+    <div class="card">
+      <table>
+        <thead><tr><th>院校 / 专业</th><th>文凭</th><th>学制</th><th>国际生学费(年)</th><th>对接加方 CoC</th><th>PGWP</th><th>备注</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="flag">🇨🇦</span><strong>NSCC</strong><br>Marine Navigation Technology<br><small>Strait Area Campus, NS</small></td>
+            <td>Diploma</td><td>3 年</td>
+            <td><strong>CAD 12,860</strong></td>
+            <td>TC 认证课程；CoC 须 PR 后考取（见下方提示）</td>
+            <td>3 年</td>
+            <td>性价比最高；新斯科舍省提名对海事需求强</td>
+          </tr>
+          <tr>
+            <td><strong>MUN Marine Institute</strong><br>Nautical Science<br><small>Newfoundland, NL</small></td>
+            <td>Bachelor（Degree）</td><td>4 年</td>
+            <td>CAD 18–20k</td>
+            <td>对接加方 CoC（管理级潜力更大）</td>
+            <td>3 年</td>
+            <td>学历更高、EE 分数更优，但总花费高</td>
+          </tr>
+          <tr>
+            <td><strong>Georgian College</strong><br>Marine Engineering Technician<br><small>Ontario</small></td>
+            <td>Diploma</td><td>2 年</td>
+            <td>CAD 14–17k</td>
+            <td>轮机方向；PGWP 按 2 年制</td>
+            <td>2–3 年</td>
+            <td>轮机（engine side）可选；安省机遇类(OINP)亦可</td>
+          </tr>
+          <tr>
+            <td><strong>BCIT</strong><br>Marine Engineering / Nautical<br><small>British Columbia</small></td>
+            <td>Diploma</td><td>2–4 年</td>
+            <td>CAD 16–20k</td>
+            <td>对接加方 CoC</td>
+            <td>2–3 年</td>
+            <td>BC 省薪资高（median C$108k），但生活成本也高</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="lead">学费按 2025–26 官方数据；NSCC 国际学费 CAD 12,860/年，3 年文凭总学费约 CAD 38.6k，加杂费/书本约 CAD 42–45k。PGWP 时长跟随学制（2 年制→2–3 年；3 年制及以上→3 年）。</p>
+    </div>
+
+    <div class="danger">
+      <strong>⚠️ 三个关键前提 / 纠错（申请前务必先看）</strong>
+      <ul style="margin-top:8px">
+        <li><strong>雅思硬门槛</strong>：NSCC 官方要求 IELTS Academic <strong>6.0，且四个单项都不得低于 6.0</strong>（PTE 55 / 托福 iBT 80 亦可；2026/1/21 起托福 iBT 改总分 4 + 单项 R3.5/L3.5/W3.5/S4）。这只是<strong>入学最低线</strong>；将来走 EE/PNP 移民需要 CLB 7–9（雅思约 6–8），所以入学 6.0 只是起点。</li>
+        <li><strong>海事体检（一票否决项）</strong>：入学须提交有效的 <strong>Transport Canada Marine Medical Certificate</strong>，评估体能、视力（含<strong>色觉/辨色力</strong>）、深度知觉、听力。甲板驾驶员对<strong>色盲/色弱高度受限甚至一票否决</strong>——若你有色觉问题，这条职业路在各国都很难走，建议大一前先做体检确认。</li>
+        <li><strong>国际生未必能直接拿加方 CoC（重要纠错）</strong>：NSCC 官网明确写"国际学生除非取得加拿大公民/永居，否则可能不具备考取 Transport Canada CoC 的资格"。即<strong>读完 NSCC 拿到的是文凭 + 海上见习资历，但"执业船长/驾驶员证书"要等拿到 PR 之后才能考</strong>。这纠正了前文"毕业即可考加方 CoC"的简化表述。实际路径应为：NSCC 毕业 → PGWP → 先拿 PR（用加拿大学历+相关海事工作经验走 EE/PNP）→ 再以 PR 身份考 TC CoC → 上船当驾驶员。对移民规划仍然走得通，只是 CoC 在"PR 之后"而非"毕业即拿"。</li>
+      </ul>
+    </div>
+
+    <h3>费用拆解（以 NSCC 为基准，最省的路线）</h3>
+    <div class="grid">
+      <div class="gcard"><h4>学费+杂费(3年)</h4><div class="big">CAD 42–45k</div><small>≈ 22–24 万 RMB</small></div>
+      <div class="gcard"><h4>生活费(3年)</h4><div class="big">CAD 36–54k</div><small>≈ 19–29 万 RMB（NS 偏 rural，较低）</small></div>
+      <div class="gcard"><h4>学签担保金 GIC</h4><div class="big">CAD 20,635</div><small>2025 生活担保（一次性冻结佐证）</small></div>
+      <div class="gcard"><h4>总花费估</h4><div class="big">45–75 万 RMB</div><small>含学费+3年生活费；比澳/新留学便宜一截</small></div>
+    </div>
+
+    <h3>逐年时间表（从高三毕业算起）</h3>
+    <div class="card">
+      <div class="step"><div class="n">T-1</div><div class="c"><strong>申请年（≈18 岁）</strong>：备考雅思到 CLB 6+；申请 NSCC Marine Navigation Technology（9 月开学）；交申请费 CAD 100 + 占位押金 CAD 5,000；准备学签与 GIC（CAD 20,635）。</div></div>
+      <div class="step"><div class="n">Y1</div><div class="c"><strong>入学（18–19）</strong>：读航海导航、值班、气象、STCW 基础安全训练；英语冲 CLB 7–9。</div></div>
+      <div class="step"><div class="n">Y2</div><div class="c"><strong>在学（19–20）</strong>：船上实习（sea term / co-op），累计海上训练时间；开始接触 Transport Canada 考试体系。</div></div>
+      <div class="step"><div class="n">Y3</div><div class="c"><strong>毕业（20–21）</strong>：完成 3 年文凭；参加 Transport Canada 考试 → 取得加方 3rd Mate / Officer of the Watch（OOW）CoC 资格。</div></div>
+      <div class="step"><div class="n">G</div><div class="c"><strong>毕业即申 PGWP（≈21）</strong>：学制 3 年 → 拿 3 年毕业工签。在加拿大找 deck officer 岗（NOC 72602），开始累计<strong>加拿大本地技术工作经验</strong>。</div></div>
+      <div class="step"><div class="n">Y4–Y6</div><div class="c"><strong>工作+省提名（21–24）</strong>：持 PGWP 在加工作；同步走新斯科舍/纽芬兰等海洋省 PNP（海员在需求清单）。加拿大本地文凭(120 分)+本地经验+CLB 9，EE 分数已很强；PNP 再 +600 基本锁定。</div></div>
+      <div class="step"><div class="n">PR</div><div class="c"><strong>获 PR（≈25–27）</strong>：入 EE 池 → 获邀 → 递交 → 登陆。此时年龄仍处在 20–29 满分窗口（110 分），最划算。</div></div>
+    </div>
+    <div class="goodbox">加拿大路线 B 的核心优势：<strong>用一个 3 年学院文凭，同时拿到加方 CoC + 3 年工签 + 本地学历/经验加分 + 海洋省 PNP</strong>。它把"执业资格"和"移民确定性"一步到位，是所有英语国家里留学→PR 性价比最高的解。</div>
+    <div class="note">⚠️ 选 NSCC 这类 3 年制 diploma（而非 2 年制）很重要：只有学制 ≥3 年才能拿满 3 年 PGWP，且 EE 学历分按"3 年及以上课程"算 120 分（2 年制仅 98 分）。另外，海洋省（NS/NL）PNP 通常要求"有 job offer 或在该省学习/工作"，所以 G 之后尽量留在 NS/NL 求职最顺。</div>
+  </section>
+
+  <section id="routea-timeline">
+    <h2>路线 A 深挖 · 国内攒海龄 → 澳/加离岸递件（年龄节点清单）</h2>
+    <p class="lead">路线 A 不花留学钱，但用<strong>时间</strong>换：你先在国内读完大专、考三副 CoC、跑国际船攒海龄，等到分数够了，再<strong>从境外（offshore）直接递交</strong>澳大利亚或加拿大的技术移民。下面是关键的"几岁前必须做什么"，以及分数自测。</p>
+
+    <h3>贯穿全程的硬约束（先记住）</h3>
+    <div class="grid">
+      <div class="gcard"><h4>🇦🇺 年龄上限</h4><div class="big">45 岁</div><small>获邀时须未满 45；25–32 岁年龄分满 30</small></div>
+      <div class="gcard"><h4>🇨🇦 年龄峰值</h4><div class="big">20–29 岁</div><small>CRS 年龄分满分 110；30 起每年掉 5–6 分</small></div>
+      <div class="gcard"><h4>英语硬杠杆</h4><div class="big">雅思 7–8</div><small>澳 Superior(8) 拿 20 分；加 CLB 9 拉满语言分</small></div>
+      <div class="gcard"><h4>证书即起点</h4><div class="big">CoC</div><small>取得 CoC 后的海龄才计分；服务簿从第一天存好</small></div>
+    </div>
+
+    <h3>🇦🇺 澳大利亚 · 离岸 189/190/491 的年龄节点与分数自测</h3>
+    <div class="card">
+      <table>
+        <thead><tr><th>计分项</th><th>你的目标状态</th><th>分数</th><th>几岁前达成</th></tr></thead>
+        <tbody>
+          <tr><td>年龄（25–32 岁）</td><td>在 25–32 岁窗口内递交 EOI</td><td>30</td><td><strong>32 岁前</strong>（最晚 44 前，但 33 起降到 25 分）</td></tr>
+          <tr><td>英语 Superior（雅思 8）</td><td>冲 Superior，而非仅 Proficient(7)=10 分</td><td>20</td><td>随时可考，越早越好</td></tr>
+          <tr><td>海外技术经验（海龄）</td><td>5–7 年=10；8+ 年=15</td><td>10–15</td><td>22 岁出海，约 30–37 岁攒够 8 年</td></tr>
+          <tr><td>学历</td><td>大专文凭=10；升本后=15</td><td>10–15</td><td>边跑船边函授升本</td></tr>
+          <tr><td>州/偏远担保</td><td>190 州担 +5；491 偏远 +15</td><td>5–15</td><td>递交时选 190/491 更易获邀</td></tr>
+        </tbody>
+      </table>
+      <p class="lead"><strong>自测样例（单人、大专文凭、未升本）</strong>：年龄 30（窗口内）+ 雅思 8（20）+ 海龄 8 年（15）+ 文凭 10 + 491 偏远担保 15 = <strong>90 分</strong>。EOI 门槛 65，实际获邀普遍 85+，90 分非常有竞争力。若海龄只 5 年（10 分）= 85，仍可走 190/491。<strong>结论：最好在 25–32 岁之间、海龄满 5–8 年、雅思冲到 8，再 Lodge EOI。</strong></p>
+    </div>
+
+    <h3>🇨🇦 加拿大 · EE + 海洋省 PNP 的年龄节点</h3>
+    <div class="card card2">
+      <ul>
+        <li><strong>先过 FSW 67 分资格线</strong>（独立于 CRS）：年龄、学历、1 年技术经验、语言、 adaptability 合计 ≥67 才能进池。你大专+CoC+海龄+雅思 7 通常稳过。</li>
+        <li><strong>CRS 打分（无加拿大经历/学历的 offshore 情况）</strong>：年龄 20–29=110；学历（本科 120 / 3 年文凭 120 / 2 年 98）；第一语言 CLB 9≈128；技能可转移性（海外经验+语言、学历+语言）最多 +100。纯 offshore 基础分约 <strong>450–480</strong>，接近但略低于近年全项目抽分（470–524）。</li>
+        <li><strong>破局点 = 省提名 PNP（+600）</strong>：新斯科舍/纽芬兰等海洋省有海员需求，拿到省提名 CRS 直接 +600，分数轻松破千、几乎锁定 ITA。这是路线 A 加拿大最现实、最确定的路径。</li>
+        <li><strong>年龄节点</strong>：20–29 岁 CRS 年龄分满分 110；30 岁起每年扣 5–6 分，35 岁后急跌。<strong>建议在 20–29 岁（最晚 30 出头）完成评估并入池/PNP</strong>，拖到 35+ 要更多靠 PNP 兜底。</li>
+      </ul>
+    </div>
+
+    <h3>路线 A 通用时间轴（对着年龄自查）</h3>
+    <div class="card">
+      <div class="step"><div class="n">18–21</div><div class="c"><strong>大一–大三</strong>：打牢适任考试；英语冲雅思 7–8；规划海事类专升本（函授）。</div></div>
+      <div class="step"><div class="n">21–22</div><div class="c"><strong>毕业考证</strong>：中国大专毕业证 + 三副 CoC，登国际航线，规范保存<strong>船员服务簿（Discharge Book）</strong>与船东海历证明。</div></div>
+      <div class="step"><div class="n">22–30</div><div class="c"><strong>攒海龄</strong>：三副→二副，累计 5–8 年；维持英语、完成专升本、锁定职业代码。</div></div>
+      <div class="step"><div class="n">25–32</div><div class="c"><strong>黄金窗口·递交</strong>：澳向 AMSA 做技能评估 + Lodge EOI（冲 85–90）；加做 ECA(WES) + 入 EE 池 + 申海洋省 PNP。两国都尽量在此窗口内完成。</div></div>
+      <div class="step"><div class="n">30+</div><div class="c"><strong>获 PR → 上岸</strong>：PR 到手即开始累计居留；转入岸基海事岗真正定居（详见"移民后还做海员吗"）。</div></div>
+    </div>
+    <div class="danger">⚠️ 路线 A 的最大风险是<strong>拖延年龄窗口</strong>：澳大利亚 45 岁硬上限、加拿大 30 岁后分数逐年掉。如果你 22 岁才出海、想攒满 8 年海龄再申，到 30 岁才递——澳仍在窗口（25–32），但加已掉出满分。所以<strong>海龄攒到 5 年（约 27 岁）就别等 8 年</strong>，先以 85 分档冲 190/491 或加 PNP，更稳。</div>
+    <div class="goodbox">一句话：路线 A 对澳更"宽容"（离岸可申、窗口到 32），对加更"依赖 PNP"（用省提名 +600 抵消 offshore 基础分不足）。两条都绕不开<strong>雅思 7–8 + CoC + 规范海龄记录</strong>。你现在大一，时间完全够，但英语和考证从今天就要抓。</div>
+  </section>
+
+  <footer>
+    <p>本文档为信息参考，非移民法律意见。所有政策以各国官方发布为准；涉及具体申请，建议咨询注册移民代理（澳洲 MARA / 新西兰 Licensed Immigration Adviser / 加拿大 RCIC 等）。</p>
+    <p style="margin-top:8px;color:#64748b">生成日期：2026-08-17 · 面向 Marvin（准大一·大专航海技术·国际海员方向）</p>
+  </footer>
+
+</div>
+</body>
+</html>

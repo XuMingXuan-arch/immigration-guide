@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#0b0f17" />
+<title>VIX / VXN 恐慌指数实时看板</title>
+<style>
+  :root {
+    --bg: #0b0f17;
+    --panel: #131a26;
+    --panel-2: #1a2230;
+    --border: #233148;
+    --text: #e6edf7;
+    --text-dim: #8b9bb4;
+    --text-faint: #5a6b85;
+    --green: #22c55e;
+    --green-d: #14532d;
+    --lime: #84cc16;
+    --lime-d: #3f6212;
+    --yellow: #eab308;
+    --yellow-d: #713f12;
+    --orange: #f97316;
+    --orange-d: #7c2d12;
+    --red: #ef4444;
+    --red-d: #7f1d1d;
+    --darkred: #991b1b;
+    --darkred-d: #450a0a;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+  header {
+    padding: 20px 16px 12px;
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; background: var(--bg); z-index: 10;
+  }
+  h1 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .meta {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
+    font-size: 12px; color: var(--text-dim);
+  }
+  .dot {
+    display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--text-faint);
+    box-shadow: 0 0 0 0 rgba(34,197,94,0.5);
+  }
+  .dot.live { background: var(--green); animation: pulse 2s infinite; }
+  .dot.closed { background: var(--text-faint); }
+  .dot.error { background: var(--red); }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+    70% { box-shadow: 0 0 0 8px rgba(34,197,94,0); }
+    100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+  }
+  .badge {
+    display: inline-block; padding: 2px 8px;
+    border-radius: 10px; font-size: 11px;
+    background: var(--panel-2); color: var(--text-dim);
+    border: 1px solid var(--border);
+  }
+  .badge.live { background: var(--green-d); color: #bbf7d0; border-color: var(--green); }
+  .badge.closed { background: var(--panel-2); color: var(--text-dim); }
+  .badge.pre { background: var(--yellow-d); color: #fde68a; border-color: var(--yellow); }
+  .badge.post { background: var(--orange-d); color: #fed7aa; border-color: var(--orange); }
+  main {
+    padding: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 18px 14px;
+    margin-bottom: 14px;
+    transition: border-color 0.4s, background 0.4s;
+  }
+  .card-head {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 6px;
+  }
+  .card-title {
+    font-size: 14px; color: var(--text-dim);
+    font-weight: 500;
+  }
+  .ticker {
+    font-size: 12px; color: var(--text-faint);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  .value-row {
+    display: flex; align-items: baseline; gap: 10px;
+    margin: 6px 0 4px;
+  }
+  .value {
+    font-size: 48px; font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+  .change {
+    font-size: 14px; font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+  .change.up { color: var(--red); }   /* A股惯例：涨红跌绿（美股正好相反，但本看板服务于中文用户，按中文用户对美股恐惧指数的阅读习惯：跌是恐惧、跌则绿、涨则红。注：美股VIX跌=风险偏好回升=绿，反映恐惧缓解） */
+  .change.down { color: var(--green); }
+  .change.flat { color: var(--text-dim); }
+  .level {
+    display: flex; align-items: center; gap: 8px;
+    margin: 8px 0 12px;
+    font-size: 14px; font-weight: 600;
+  }
+  .level-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    box-shadow: 0 0 8px currentColor;
+  }
+  .level-desc {
+    color: var(--text-dim); font-weight: 400; font-size: 13px;
+    margin-left: auto;
+  }
+  .scale {
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    gap: 3px; margin-bottom: 8px;
+  }
+  .scale-cell {
+    height: 10px; border-radius: 3px;
+    background: var(--panel-2);
+    transition: all 0.4s;
+    position: relative;
+  }
+  .scale-cell.active {
+    transform: scaleY(1.6);
+    box-shadow: 0 0 12px currentColor;
+  }
+  .scale-labels {
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    gap: 3px; font-size: 10px; color: var(--text-faint);
+    font-variant-numeric: tabular-nums;
+  }
+  .scale-labels span { text-align: center; }
+  .card-foot {
+    margin-top: 12px;
+    font-size: 11px; color: var(--text-faint);
+    border-top: 1px dashed var(--border);
+    padding-top: 8px;
+  }
+  /* theme overrides based on bracket */
+  .card.lvl-0 { border-color: var(--green); }
+  .card.lvl-1 { border-color: var(--lime); }
+  .card.lvl-2 { border-color: var(--yellow); }
+  .card.lvl-3 { border-color: var(--orange); }
+  .card.lvl-4 { border-color: var(--red); }
+  .card.lvl-5 { border-color: var(--darkred); }
+  footer {
+    padding: 16px; text-align: center;
+    color: var(--text-faint); font-size: 11px;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+  }
+  footer button {
+    background: var(--panel-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-bottom: 8px;
+  }
+  footer button:active { background: var(--border); }
+  .legend {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 14px; margin-top: 4px;
+    font-size: 11px; color: var(--text-dim);
+  }
+  .legend table { width: 100%; border-collapse: collapse; }
+  .legend td { padding: 3px 4px; vertical-align: middle; }
+  .legend td.sw {
+    width: 12px; height: 12px; border-radius: 3px;
+  }
+  .skeleton {
+    color: var(--text-faint);
+    animation: blink 1.2s infinite;
+  }
+  @keyframes blink { 50% { opacity: 0.3; } }
+  @media (min-width: 720px) {
+    main { padding: 24px; }
+    h1 { font-size: 20px; }
+    .value { font-size: 56px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>恐慌指数实时看板 · VIX & VXN</h1>
+  <div class="meta">
+    <span><span class="dot" id="statusDot"></span><span id="statusText">连接中…</span></span>
+    <span id="updatedText">--</span>
+    <span>每 60s 自动刷新</span>
+  </div>
+</header>
+<main>
+  <section class="card" id="card-vix">
+    <div class="card-head">
+      <div class="card-title">标普 500 恐慌指数 (S&P 500 Fear Index)</div>
+      <span class="ticker">CBOE: ^VIX</span>
+    </div>
+    <div class="value-row">
+      <div class="value" id="vix-value">--</div>
+      <div class="change" id="vix-change">--</div>
+    </div>
+    <div class="level" id="vix-level">
+      <span class="level-dot" id="vix-level-dot"></span>
+      <span id="vix-level-text">--</span>
+      <span class="level-desc" id="vix-level-desc"></span>
+    </div>
+    <div class="scale" id="vix-scale"></div>
+    <div class="scale-labels" id="vix-labels"></div>
+    <div class="card-foot">数值越低 = 市场越平静；数值越高 = 恐慌越重。数据为 15 分钟延迟（免费源）。</div>
+  </section>
+
+  <section class="card" id="card-vxn">
+    <div class="card-head">
+      <div class="card-title">纳斯达克 100 恐慌指数 (Nasdaq-100 Volatility)</div>
+      <span class="ticker">CBOE: ^VXN</span>
+    </div>
+    <div class="value-row">
+      <div class="value" id="vxn-value">--</div>
+      <div class="change" id="vxn-change">--</div>
+    </div>
+    <div class="level" id="vxn-level">
+      <span class="level-dot" id="vxn-level-dot"></span>
+      <span id="vxn-level-text">--</span>
+      <span class="level-desc" id="vxn-level-desc"></span>
+    </div>
+    <div class="scale" id="vxn-scale"></div>
+    <div class="scale-labels" id="vxn-labels"></div>
+    <div class="card-foot">VXN 是纳指 100 的隐含波动率，比 VIX 阈值整体高 1–5 点。数据为 15 分钟延迟（免费源）。</div>
+  </section>
+
+  <div class="legend">
+    <div style="margin-bottom:6px;color:var(--text);font-weight:600">配色对照</div>
+    <table>
+      <tr><td class="sw" style="background:var(--green)"></td><td>1 级</td><td>极度平静</td></tr>
+      <tr><td class="sw" style="background:var(--lime)"></td><td>2 级</td><td>中性常态</td></tr>
+      <tr><td class="sw" style="background:var(--yellow)"></td><td>3 级</td><td>风险升温</td></tr>
+      <tr><td class="sw" style="background:var(--orange)"></td><td>4 级</td><td>中度恐慌</td></tr>
+      <tr><td class="sw" style="background:var(--red)"></td><td>5 级</td><td>重度恐慌</td></tr>
+      <tr><td class="sw" style="background:var(--darkred)"></td><td>6 级</td><td>史诗级危机</td></tr>
+    </table>
+  </div>
+</main>
+<footer>
+  <div><button id="refreshBtn">手动刷新</button></div>
+  <div>数据源：Yahoo Finance (^VIX / ^VXN) · 仅供研究参考，不构成投资建议</div>
+  <div style="margin-top:4px">美股交易时段：美东 09:30–16:15 · 北京时间 21:30–次日 04:15（夏令时）</div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  // --- Bracket definitions (from Marvin's image) ---
+  const VIX_BRACKETS = [
+    { max: 15, label: '极度平静',  desc: '容易过度乐观，警惕回调风险',  color: '#22c55e', key: 'green' },
+    { max: 20, label: '正常中性',  desc: '美股常态行情',                 color: '#84cc16', key: 'lime' },
+    { max: 30, label: '情绪承压',  desc: '波动加大，做好风控',           color: '#eab308', key: 'yellow' },
+    { max: 40, label: '中度恐慌',  desc: '市场进入调整阶段',             color: '#f97316', key: 'orange' },
+    { max: 60, label: '重度恐慌',  desc: '重大下跌',                     color: '#ef4444', key: 'red' },
+    { max: Infinity, label: '史诗级危机', desc: '流动性紧张',               color: '#991b1b', key: 'darkred' }
+  ];
+  const VXN_BRACKETS = [
+    { max: 16, label: '极度平静',  desc: '市场过度乐观，警惕回调',       color: '#22c55e', key: 'green' },
+    { max: 25, label: '中性常态',  desc: '行情平稳',                     color: '#84cc16', key: 'lime' },
+    { max: 35, label: '风险升温',  desc: '波动加大，注意控仓',           color: '#eab308', key: 'yellow' },
+    { max: 50, label: '中度恐慌',  desc: '纳指明显调整',                 color: '#f97316', key: 'orange' },
+    { max: 65, label: '重度恐慌',  desc: '系统性下跌行情',               color: '#ef4444', key: 'red' },
+    { max: Infinity, label: '史诗级危机', desc: '极端行情',                 color: '#991b1b', key: 'darkred' }
+  ];
+
+  function getBracket(value, brackets) {
+    for (let i = 0; i < brackets.length; i++) {
+      if (value < brackets[i].max) return { ...brackets[i], index: i };
+    }
+    return { ...brackets[brackets.length - 1], index: brackets.length - 1 };
+  }
+
+  // --- Build the 6-cell scales (visual only) ---
+  function buildScale(prefix, brackets) {
+    const scaleEl = document.getElementById(prefix + '-scale');
+    const labelsEl = document.getElementById(prefix + '-labels');
+    brackets.forEach((b, i) => {
+      const cell = document.createElement('div');
+      cell.className = 'scale-cell';
+      cell.style.background = b.color;
+      cell.style.color = b.color;
+      cell.dataset.idx = String(i);
+      scaleEl.appendChild(cell);
+
+      const lab = document.createElement('span');
+      if (i < brackets.length - 1) {
+        lab.textContent = '<' + b.max;
+      } else {
+        lab.textContent = '>' + brackets[i - 1].max;
+      }
+      labelsEl.appendChild(lab);
+    });
+  }
+  buildScale('vix', VIX_BRACKETS);
+  buildScale('vxn', VXN_BRACKETS);
+
+  // --- CORS proxy fallback chain ---
+  // corsproxy.io 已转付费、cors-anywhere 长期 500，已移除。
+  // 关键坑：query1.finance.yahoo.com 对 VIX 长期被限流（Too Many Requests），
+  // allorigins 会缓存空响应 → 表现为"标普的看不到"。换 query2 主机即可绕过。
+  // 策略：双主机（query2 优先）× 4 代理 展开成组合链，命中率大幅提升。
+  const YAHOO_HOSTS = ['query2.finance.yahoo.com', 'query1.finance.yahoo.com'];
+  const YAHOO_CHART = (sym, host) =>
+    'https://' + host + '/v8/finance/chart/' + encodeURIComponent(sym)
+    + '?interval=1d&range=5d';
+
+  const PROXY_FNS = [
+    (u) => ({ url: 'https://api.allorigins.win/get?url=' + encodeURIComponent(u), mode: 'wrapped' }),
+    (u) => ({ url: 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u), mode: 'raw' }),
+    (u) => ({ url: 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(u), mode: 'raw' }),
+    (u) => ({ url: 'https://thingproxy.freeboard.io/fetch/' + u, mode: 'raw' })
+  ];
+
+  // 展开为「主机 × 代理」组合链：先 query2（绕限流），再 query1。
+  const PROXIES = [];
+  for (const host of YAHOO_HOSTS) {
+    for (const fn of PROXY_FNS) {
+      PROXIES.push({ host, make: fn });
+    }
+  }
+
+  function extractYahooJson(textOrObj, mode) {
+    try {
+      let data = textOrObj;
+      if (mode === 'wrapped') {
+        // allorigins /get 返回 {"contents":"...escaped JSON..."}
+        if (typeof data === 'string') data = JSON.parse(data);
+        if (!data || !data.contents) return null;
+        data = JSON.parse(data.contents);
+      }
+      if (typeof data === 'string') data = JSON.parse(data);
+      if (data && data.chart && data.chart.result && data.chart.result[0]) return data;
+    } catch (e) { /* 解析失败视为无效响应，交给下一个组合 */ }
+    return null;
+  }
+
+  async function fetchQuote(symbol) {
+    let lastErr = null;
+    for (const { host, make } of PROXIES) {
+      const target = YAHOO_CHART(symbol, host);
+      const cfg = make(target);
+      try {
+        const ctrl = new AbortController();
+        const timer = setTimeout(() => ctrl.abort(), 8000);
+        const res = await fetch(cfg.url, { signal: ctrl.signal });
+        clearTimeout(timer);
+        if (!res.ok) { lastErr = host + ' HTTP ' + res.status; continue; }
+        const text = await res.text();
+        if (!text || !text.trim()) { lastErr = host + ' 空响应'; continue; }
+        let data;
+        try { data = JSON.parse(text); } catch (e) { lastErr = host + ' JSON解析失败'; continue; }
+        const yahoo = extractYahooJson(data, cfg.mode);
+        if (yahoo) return parseYahoo(yahoo);
+        lastErr = host + ' 无行情数据';
+      } catch (e) {
+        lastErr = host + ' ' + (e && e.name === 'AbortError' ? '超时' : (e && e.message ? e.message : String(e)));
+      }
+    }
+    throw new Error(lastErr || '所有数据源均失败');
+  }
+
+  function parseYahoo(data) {
+    const r = data.chart.result[0];
+    const meta = r.meta;
+    return {
+      price: meta.regularMarketPrice,
+      previousClose: (meta.chartPreviousClose != null) ? meta.chartPreviousClose : meta.previousClose,
+      time: (meta.regularMarketTime || 0) * 1000,
+      marketState: meta.marketState || 'CLOSED',
+      currency: meta.currency || 'USD'
+    };
+  }
+
+  // --- Time formatting (Beijing time) ---
+  function fmtTime(ms) {
+    if (!ms || ms < 1) return '--';
+    const d = new Date(ms);
+    const pad = (n) => (n < 10 ? '0' + n : '' + n);
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate())
+      + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+  }
+
+  function marketStateText(state) {
+    switch (state) {
+      case 'REGULAR': return { text: '交易中', cls: 'live' };
+      case 'PRE':     return { text: '盘前',   cls: 'pre' };
+      case 'POST':    return { text: '盘后',   cls: 'post' };
+      case 'CLOSED':  return { text: '已收盘', cls: 'closed' };
+      case 'PREPRE':  return { text: '盘前预热', cls: 'pre' };
+      default:        return { text: state || '未知', cls: 'closed' };
+    }
+  }
+
+  // --- Card rendering ---
+  function renderCard(prefix, brackets, data) {
+    const card = document.getElementById('card-' + prefix);
+    const valueEl = document.getElementById(prefix + '-value');
+    const changeEl = document.getElementById(prefix + '-change');
+    const lvlEl = document.getElementById(prefix + '-level');
+    const lvlDot = document.getElementById(prefix + '-level-dot');
+    const lvlText = document.getElementById(prefix + '-level-text');
+    const lvlDesc = document.getElementById(prefix + '-level-desc');
+
+    const price = data.price;
+    const prev = data.previousClose;
+    const diff = price - prev;
+    const pct = prev ? (diff / prev) * 100 : 0;
+
+    valueEl.textContent = price.toFixed(2);
+    valueEl.classList.remove('skeleton');
+
+    // For fear index: 下跌 = 风险偏好回升 = 绿；上涨 = 恐惧加剧 = 红（中文用户对美股恐惧指数的常识解读）
+    let dir = 'flat';
+    if (diff > 0.005) dir = 'up';
+    else if (diff < -0.005) dir = 'down';
+    changeEl.className = 'change ' + dir;
+    const sign = diff > 0 ? '+' : '';
+    changeEl.textContent = sign + diff.toFixed(2) + ' (' + sign + pct.toFixed(2) + '%)';
+
+    const br = getBracket(price, brackets);
+    card.classList.remove('lvl-0','lvl-1','lvl-2','lvl-3','lvl-4','lvl-5');
+    card.classList.add('lvl-' + br.index);
+    lvlDot.style.background = br.color;
+    lvlDot.style.color = br.color;
+    lvlText.textContent = br.label;
+    lvlDesc.textContent = br.desc;
+
+    // Highlight active scale cell
+    const cells = document.querySelectorAll('#' + prefix + '-scale .scale-cell');
+    cells.forEach(c => c.classList.remove('active'));
+    if (cells[br.index]) cells[br.index].classList.add('active');
+
+    return br;
+  }
+
+  // --- Status bar ---
+  function setStatus(kind, text) {
+    const dot = document.getElementById('statusDot');
+    const t = document.getElementById('statusText');
+    dot.classList.remove('live', 'closed', 'error');
+    if (kind) dot.classList.add(kind);
+    t.textContent = text;
+  }
+
+  // --- Main refresh ---
+  // VIX / VXN 独立拉取：一个成功就先渲染，不因另一个慢而全卡死。
+  let lastData = { vix: null, vxn: null };
+  let lastErr = { vix: null, vxn: null };
+
+  async function fetchOne(symbol) {
+    try { return { ok: true, data: await fetchQuote(symbol) }; }
+    catch (e) { return { ok: false, err: e.message || String(e) }; }
+  }
+
+  async function refresh() {
+    setStatus(null, '刷新中…');
+    const [rVix, rVxn] = await Promise.all([
+      fetchOne('^VIX'),
+      fetchOne('^VXN')
+    ]);
+
+    let okCount = 0;
+    let latestTime = 0;
+    let msState = 'CLOSED';
+
+    if (rVix.ok) {
+      lastData.vix = rVix.data;
+      lastErr.vix = null;
+      renderCard('vix', VIX_BRACKETS, rVix.data);
+      okCount++;
+      if (rVix.data.time > latestTime) { latestTime = rVix.data.time; msState = rVix.data.marketState; }
+    } else {
+      lastErr.vix = rVix.err;
+      // 若有上次成功的数据，保留旧值不刷掉
+      if (!lastData.vix) {
+        document.getElementById('vix-value').textContent = '获取失败';
+        document.getElementById('vix-value').classList.add('skeleton');
+      }
+    }
+
+    if (rVxn.ok) {
+      lastData.vxn = rVxn.data;
+      lastErr.vxn = null;
+      renderCard('vxn', VXN_BRACKETS, rVxn.data);
+      okCount++;
+      if (rVxn.data.time > latestTime) { latestTime = rVxn.data.time; msState = rVxn.data.marketState; }
+    } else {
+      lastErr.vxn = rVxn.err;
+      if (!lastData.vxn) {
+        document.getElementById('vxn-value').textContent = '获取失败';
+        document.getElementById('vxn-value').classList.add('skeleton');
+      }
+    }
+
+    if (okCount > 0) {
+      const ms = marketStateText(msState);
+      setStatus(ms.cls, '美股' + ms.text);
+      document.getElementById('updatedText').textContent =
+        '数据时间 ' + fmtTime(latestTime) + ' (北京)';
+    } else {
+      setStatus('error', '刷新失败：' + (lastErr.vix || lastErr.vxn || '未知'));
+      document.getElementById('updatedText').textContent = '所有代理均不可用，稍后自动重试';
+    }
+  }
+
+  document.getElementById('refreshBtn').addEventListener('click', refresh);
+  refresh();
+  setInterval(refresh, 60 * 1000);
+
+  // Page Visibility API: refresh when tab becomes visible again
+  document.addEventListener('visibilitychange', function() {
+    if (!document.hidden) refresh();
+  });
+})();
+</script>
+</body>
+</html>
