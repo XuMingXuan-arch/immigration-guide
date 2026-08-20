@@ -1,0 +1,78 @@
+name: Update VIX/VXN data
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # every 10 minutes
+  workflow_dispatch: {}      # allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch VIX/VXN from Yahoo Finance
+        run: |
+          python3 - <<'EOF'
+          import json, urllib.request, time
+
+          UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36'
+
+          def fetch(sym):
+              for attempt in range(3):
+                  for host in ['query2.finance.yahoo.com', 'query1.finance.yahoo.com']:
+                      url = 'https://%s/v8/finance/chart/%s?interval=1d&range=5d' % (host, urllib.request.quote(sym))
+                      try:
+                          req = urllib.request.Request(url, headers={'User-Agent': UA})
+                          with urllib.request.urlopen(req, timeout=20) as r:
+                              d = json.loads(r.read().decode())
+                          meta = d['chart']['result'][0]['meta']
+                          return {
+                              'price': meta.get('regularMarketPrice'),
+                              'previousClose': meta.get('chartPreviousClose') or meta.get('previousClose'),
+                              'time': meta.get('regularMarketTime'),
+                              'marketState': meta.get('marketState', 'CLOSED'),
+                          }
+                      except Exception as e:
+                          print('%s failed for %s: %s' % (host, sym, e))
+                          time.sleep(3)
+              return None
+
+          vix = fetch('^VIX')
+          vxn = fetch('^VXN')
+
+          if vix is None and vxn is None:
+              raise SystemExit('Both fetches failed')
+
+          # Read existing data.json to check if values actually changed
+          old = {}
+          try:
+              with open('data.json') as f:
+                  old = json.load(f)
+          except Exception:
+              pass
+
+          new = {'vix': vix, 'vxn': vxn, 'updatedAt': int(time.time())}
+          changed = (old.get('vix') != vix) or (old.get('vxn') != vxn)
+
+          with open('data.json', 'w') as f:
+              json.dump(new, f)
+
+          print(json.dumps(new))
+          print('CHANGED=' + str(changed))
+          EOF
+
+      - name: Commit if data changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          if git diff --cached --quiet; then
+            echo "No data change, skip commit"
+          else
+            git commit -m "chore: update VIX/VXN data"
+            git push
+          fi
