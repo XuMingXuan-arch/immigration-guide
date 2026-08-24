@@ -791,7 +791,361 @@ window.PAPERS = [
 },
 
   /* ---------- 2025年场次（待录入） ---------- */
-  { id: "2025-06-1", year: 2025, session: "06", title: "2025年6月四级听力（第一套）", status: "pending", sections: [] },
+  /* ---------- 2025年6月 第一套（已录入） ---------- */
+{
+  "id": "2025-06-1",
+  "year": 2025,
+  "session": "06",
+  "title": "2025年6月四级听力（第一套）",
+  "sections": [
+    {
+      "id": "secA",
+      "name": "Section A · 新闻报道 (News Report)",
+      "directions": "Directions: In this section, you will hear three news reports. At the end of each news report, you will hear two or three questions. Both the news report and the questions will be spoken only once. After you hear a question, you must choose the best answer from the four choices marked A), B), C) and D). Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "passages": [
+        {
+          "label": "News Report 1",
+          "transcript": "Everything changed for seven-year-old Tariq when he slapped some butter on an ear of corn. He knew it tasted good, but butter made it better. His passion for produce got him a position as South Dakota's official corn ambassador. Tariq's profession of love for his favorite vegetable earned him the name “the Corn Kid.” This was after his online interview attracted millions of views and was made into a song. South Dakota is one of the top corn producers in America. The corn provides nourishment across the globe. Tariq said not everyone has to like corn, but everyone should definitely try it, especially with butter. Tariq and his family were invited to South Dakota to attend the honorary ceremony at the state's Corn Palace. Officials wanted to highlight South Dakota's two largest industries: tourism and agriculture. Tariq couldn't believe his eyes when he saw the palace made of corn.",
+          "questions": [
+            {
+              "no": 1,
+              "stem": "How did Tariq make corn taste better?",
+              "options": [
+                "A) By slapping some butter on it.",
+                "B) By enhancing its nourishment.",
+                "C) By growing it in South Dakota.",
+                "D) By cooking it in vegetable oil."
+              ],
+              "answer": "A"
+            },
+            {
+              "no": 2,
+              "stem": "Why were Tariq and his family invited to South Dakota?",
+              "options": [
+                "A) To introduce their corn to tourists.",
+                "B) To attend an honorary ceremony.",
+                "C) To share experience with other corn growers.",
+                "D) To exhibit their corn at the state's Corn Palace."
+              ],
+              "answer": "B"
+            }
+          ]
+        },
+        {
+          "label": "News Report 2",
+          "transcript": "Two arrests were announced Thursday. The arrests were in connection with a string of mail thefts from U.S. Postal Service collection boxes in Marion County, and for the possession of a stolen postal key, according to the Department of Justice. Jordan Jax and Tarod Goodman, both 23, were arrested after evidence gathered in an investigation showed the pair stole mail on multiple occasions using a postal key, according to a news release. Jax and Goodman stole mail for around four months. Investigators reviewed videos of the collection boxes; the video showed the two men loading the stolen mail into Jax's vehicle. Investigators were also able to recover the key that was used to open the collection boxes. Jax and Goodman each face up to five years in federal prison in the mail thefts and up to ten years for possession of the postal key.",
+          "questions": [
+            {
+              "no": 3,
+              "stem": "What did Jordan Jax and Tarod Goodman do according to a news release?",
+              "options": [
+                "A) Stole mail several times.",
+                "B) Forged postal keys illegally.",
+                "C) Attacked postmen on multiple occasions.",
+                "D) Broke a number of postal collection boxes."
+              ],
+              "answer": "A"
+            },
+            {
+              "no": 4,
+              "stem": "What do Jordan Jax and Tarod Goodman face?",
+              "options": [
+                "A) A sentence for life.",
+                "B) Loss of all their possessions.",
+                "C) Twenty-three years' hard labor.",
+                "D) Up to fifteen years in prison."
+              ],
+              "answer": "D"
+            }
+          ]
+        },
+        {
+          "label": "News Report 3",
+          "transcript": "Can fast fashion be sustainable? Researchers think yes. Identifying why the fast fashion business model creates waste and determining whether regulators can establish incentives for consumers and manufacturers are steps to reduce waste. Recently, the clothing industry has come under attack for creating a waste problem with serious environmental consequences. In the absence of environmentally and economically feasible recycling options, fast fashion manufacturers pump out low-quality clothes produced in high volumes that are worn only a few times and then discarded. The researchers put forth policy contributions ranging from sustainable disposal of leftover stock to production tax to incentivize both manufacturers and consumers to be more waste conscious. In order to devise effective policies to curb the environmental impact of the clothing industry, it is important to identify the source of the problem in the supply chain. Manufacturers, consumers, and regulatory bodies can then take an informed approach to recognize the environmental impact of fast fashion and to design an ecosystem to reduce waste, incentivize innovation, and create new business models to manage waste.",
+          "questions": [
+            {
+              "no": 5,
+              "stem": "Why has the clothing industry come under attack?",
+              "options": [
+                "A) It escapes regulation and misleads consumers.",
+                "B) It ignores economically feasible recycling options.",
+                "C) It creates waste and severely impacts the environment.",
+                "D) It produces clothes affordable only to a tiny minority."
+              ],
+              "answer": "C"
+            },
+            {
+              "no": 6,
+              "stem": "Why do the researchers put forth such policies as production tax?",
+              "options": [
+                "A) To cut consumers' expenses in buying quality clothes.",
+                "B) To enable the whole fast-fashion industry to be sustainable.",
+                "C) To incentivize manufacturers to be more consumer-friendly.",
+                "D) To urge manufacturers and consumers to reduce waste."
+              ],
+              "answer": "D"
+            },
+            {
+              "no": 7,
+              "stem": "What should be done first to eliminate the harm caused by the clothing industry?",
+              "options": [
+                "A) Recognizing the impact on consumers.",
+                "B) Identifying the source of the problem.",
+                "C) Abandoning the current business model.",
+                "D) Establishing powerful regulatory bodies."
+              ],
+              "answer": "B"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "secB",
+      "name": "Section B · 长对话 (Long Conversation)",
+      "directions": "Directions: In this section, you will hear two long conversations. At the end of each conversation, you will hear four questions. Both the conversation and the questions will be spoken only once. After you hear a question, you must choose the best answer from the four choices marked A), B), C) and D). Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "passages": [
+        {
+          "label": "Conversation 1",
+          "transcript": "A: Hey Mary, you seem to be very much annoyed. What happened?\nB: Rush hour in this city is killing me.\nA: Ah, yes, rush hour is terrible, especially in the morning between 8:00 and 9:00. But what else can you expect in a city this big?\nB: Well, I think the local government could help improve things. I mean, getting rid of rush hour may be impossible, but it could be made more tolerable, don't you think?\nA: Uhm, but I'm not sure how.\nB: Well, for example, the subway system could have air conditioning. I know many cities in the world have air conditioning in their subway, so why can't we? It gets so hot in the summer, I can hardly breathe down there. And add to that the rush hour crowds with strangers packed close together in the subway carriages, the whole thing is just horrible.\nA: Ah, yes, you are completely right. The trains here are too old. The government should definitely invest in new ones with air conditioning.\nB: I guess I'm fortunate I take the bus instead.\nA: Oh, that's much better. Yeah. It's more convenient. Bus number 36 goes straight from my house to the office. It's a 30-minute ride and I don't have to make any changes.\nB: That sounds nice. I tell you, my current commute is killing me. Maybe I should move closer to the office.\nA: Well, I know a great housing agent. I found the flat I'm living in now through him, and I love it.\nB: Hmm, could you send me his number, please?\nA: Sure thing. Just tell him exactly what you are looking for and I'm sure he will find something good.",
+          "questions": [
+            {
+              "no": 8,
+              "stem": "Why is the woman complaining?",
+              "options": [
+                "A) The city's rush-hour traffic is intolerable.",
+                "B) She cannot avoid rush-hour traffic.",
+                "C) The local government is inefficient.",
+                "D) The city is too big to move around easily."
+              ],
+              "answer": "A"
+            },
+            {
+              "no": 9,
+              "stem": "What does the woman suggest doing?",
+              "options": [
+                "A) Upgrading subway carriages.",
+                "B) Increasing the number of bus routes.",
+                "C) Air conditioning the city's subway.",
+                "D) Learning from other big cities."
+              ],
+              "answer": "C"
+            },
+            {
+              "no": 10,
+              "stem": "What do we learn about the man from the conversation?",
+              "options": [
+                "A) He suffers from rush-hour crowding too.",
+                "B) He is fortunate to live very near to work.",
+                "C) He takes a half-hour bus ride to work.",
+                "D) He is going to move closer to his office."
+              ],
+              "answer": "C"
+            },
+            {
+              "no": 11,
+              "stem": "What does the woman ask the man to do at the end of the conversation?",
+              "options": [
+                "A) Recommend to her a good house near his office.",
+                "B) Send her his housing agent's telephone number.",
+                "C) Tell her exactly what kind of property to look for.",
+                "D) Make sure the agent finds something good for her."
+              ],
+              "answer": "B"
+            }
+          ]
+        },
+        {
+          "label": "Conversation 2",
+          "transcript": "A: Did you hear about Johnny?\nB: No, why? Is he okay?\nA: He had some plastic surgery done.\nB: What? Why? Do you remember he had a scar on his face?\nA: Yes, of course. He always had that. I've known him since primary school and I always remember him having that on his cheek.\nB: Well, he had it fixed.\nA: Fixed? What do you mean? You can't fix a scar.\nB: You know what I mean. He had an operation done on it, plastic surgery, in order to cover it and make it less noticeable.\nA: Oh, well, that's ridiculous, isn't it? It was noticeable, sure, but it wasn't an ugly scar. It never occurred to me that he should have it taken care of like that.\nB: I agree. I can understand some scars and physical defects can be ugly and distracting, but not Johnny's. In fact, I thought it added character, like it gave him a certain uniqueness.\nA: He must have felt differently though. He must have felt self-conscious and insecure, perhaps.\nB: No, no. That's not the reason. He was totally fine with his scar. As you said, he had had it for most of his life.\nA: Then why did he have the operation?\nB: Because his girlfriend wanted him to.\nA: What? That's so superficial and selfish of her. If Johnny's girlfriend doesn't like him for who he is, then she does not deserve to be his girlfriend.\nB: You're right. So he is insane to give in to her like that. But when I told him, he said he loves her and would just do what she wants him to.\nA: What a fool he is.",
+          "questions": [
+            {
+              "no": 12,
+              "stem": "What does the man say about Johnny?",
+              "options": [
+                "A) He was remembered for the scar on his cheek.",
+                "B) He received a heart operation a few days ago.",
+                "C) He used to wear a sad face in school.",
+                "D) He had some plastic surgery done."
+              ],
+              "answer": "D"
+            },
+            {
+              "no": 13,
+              "stem": "What does the woman find puzzling?",
+              "options": [
+                "A) The man's deep sympathy for Johnny.",
+                "B) The man's use of the expression 'fixed'.",
+                "C) The man's covering up of what happened.",
+                "D) The man's good memory of his childhood."
+              ],
+              "answer": "B"
+            },
+            {
+              "no": 14,
+              "stem": "What did the man think of Johnny's scar?",
+              "options": [
+                "A) It gave him a noticeable smartness.",
+                "B) It made him appear even more manly.",
+                "C) It seemed to give him a certain uniqueness.",
+                "D) It seemed to make up for his physical defects."
+              ],
+              "answer": "C"
+            },
+            {
+              "no": 15,
+              "stem": "How could we describe the speakers' attitude towards Johnny's girlfriend?",
+              "options": [
+                "A) Liberal.",
+                "B) Hostile.",
+                "C) Indifferent.",
+                "D) Critical."
+              ],
+              "answer": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "secC",
+      "name": "Section C · 短文篇章 (Passage)",
+      "directions": "Directions: In this section, you will hear three passages. At the end of each passage, you will hear three or four questions. Both the passage and the questions will be spoken only once. After you hear a question, you must choose the best answer from the four choices marked A), B), C) and D). Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "passages": [
+        {
+          "label": "Passage 1",
+          "transcript": "Talking is unique to humans. An animal might make 10 different sounds, but an adult human knows more than 20,000 words. Additionally, we're the only animal that expresses thoughts in full sentences. Researchers don't think language was invented. Instead, they think it evolved. How did talking evolve? There are two main theories. The first theory is that language started with people making different sounds, mostly imitating the things around them, like animal calls, nature sounds, and the sounds of tools. Perhaps they made the sound of wind to comment on the weather or imitated the sound of a bird to tell a friend that there was a bird nearby. Then, over hundreds of thousands of years, those sounds turned into words that people began to learn as part of their language. At some point, people started stringing the words together to form sentences. The other main theory, which is more recent, is that people started off by gesturing, pointing at things with their hands and imitating actions using their bodies. Eventually, these gestures turned into a full sign language. This theory guesses that after developing sign languages, people eventually started making sounds along with their gestures. At some point, they switched to mostly making sounds that became words instead of just using their bodies. The reason they switched to making sounds, the theory goes, is that talking out loud lets you communicate with someone even when you can't see them.",
+          "questions": [
+            {
+              "no": 16,
+              "stem": "How did language come into being according to researchers?",
+              "options": [
+                "A) Through deliberation.",
+                "B) Through evolution.",
+                "C) Through invention.",
+                "D) Through collaboration."
+              ],
+              "answer": "B"
+            },
+            {
+              "no": 17,
+              "stem": "How did language start according to the first theory?",
+              "options": [
+                "A) With people imitating sounds around them.",
+                "B) With people interacting with animals close by.",
+                "C) With people showing each other things nearby.",
+                "D) With people trying to string sounds together."
+              ],
+              "answer": "A"
+            },
+            {
+              "no": 18,
+              "stem": "Why did people switch from gesturing to making sounds, according to the more recent theory?",
+              "options": [
+                "A) Making sounds can free one's hands for doing other things.",
+                "B) Making sounds proves markedly easier than sign languages.",
+                "C) Making sounds enables one to express their ideas more explicitly.",
+                "D) Making sounds helps one communicate with people they can't see."
+              ],
+              "answer": "D"
+            }
+          ]
+        },
+        {
+          "label": "Passage 2",
+          "transcript": "Is it a good idea to display luxury brands and other signals of status? It depends on the situation. Studies have shown that people who appear to be wealthy tend to be considered more intelligent, disciplined, and competent than those who do not. But new research found that people believe someone who shows off their social status cares more about benefiting themselves than helping others. This means people are less willing to collaborate with them. Modesty may be key when cooperation is essential. But the researchers also found that in some cases status signaling has advantages. Experiments showed that participants were less likely to choose someone who signals their wealth or status to join a group seeking cooperative members. But participants were more likely to choose that person when they were looking for a competitive team member. These findings suggest that people should change how they present themselves depending on their social goal. This is the era of social media. People can easily share their wealth and status to large audiences. But they need to consider the consequences. Posting about luxury purchases and expensive vacations online may help you to persuade others and frighten competitors. But it could also signal to potential friends or future employers that you are unlikely to think about the needs of others. This makes things tricky for people who may want to impress others while also demonstrating that they are a team player.",
+          "questions": [
+            {
+              "no": 19,
+              "stem": "How would people describe someone who shows off their social status according to new research?",
+              "options": [
+                "A) Well disciplined.",
+                "B) Quite confident.",
+                "C) Somewhat selfish.",
+                "D) Highly intelligent."
+              ],
+              "answer": "C"
+            },
+            {
+              "no": 20,
+              "stem": "When were participants more likely to choose someone who signaled their wealth or status?",
+              "options": [
+                "A) When they wanted to have a competitive team member.",
+                "B) When they were looking for a cooperative workmate.",
+                "C) When they found collaboration essential to them.",
+                "D) When they were seeking someone to help them."
+              ],
+              "answer": "A"
+            },
+            {
+              "no": 21,
+              "stem": "What should people do when sharing their wealth and status online?",
+              "options": [
+                "A) Avoid frightening competitors.",
+                "B) Make clear their social goal.",
+                "C) Adopt persuasive strategies.",
+                "D) Consider the consequences."
+              ],
+              "answer": "D"
+            }
+          ]
+        },
+        {
+          "label": "Passage 3",
+          "transcript": "Human fascination with animals goes back as far as humans do. Of the oldest cave paintings discovered, some are up to 40,000 years old, and there are more images of animals than humans. At some point, humans began to capture and hold animals. The first known collections were held by royalty and were not open to the public. In Egypt, researchers have found buildings from around 3,500 BC containing the remains of animals including elephants, which were not native to Egypt. But life wasn't easy for these animals. They probably had short lives and the remains show evidence of severe injuries. The first public exhibit of animals may have been created by Egypt's Queen Hatshepsut around 1480 BC. Researchers think the zoo was started with animals brought home from a far-off land known as Punt. It's unclear why the queen built the zoo, but it might have been to show off her wealth and power. Early zoos are found all over the world. In China, Emperor Wen Wang is said to have built a Garden of Intelligence around 1060 BC. It included deer, birds, and many fish. In England, King Henry I set up a collection of animals in about 1110 as part of the royal estate. His collection included tigers and lions. This collection eventually moved to the Tower of London in 1235. The collection stayed at that location for 600 years.",
+          "questions": [
+            {
+              "no": 22,
+              "stem": "What can we see in the oldest cave paintings?",
+              "options": [
+                "A) Much evidence of humans capturing animals.",
+                "B) More images of animals than humans.",
+                "C) Fewer images of buildings than animals.",
+                "D) Little proof of human fascination with animals."
+              ],
+              "answer": "B"
+            },
+            {
+              "no": 23,
+              "stem": "What do we learn about the first known collections of animals?",
+              "options": [
+                "A) They were open to the public.",
+                "B) They were primarily native.",
+                "C) They were kept by royalty.",
+                "D) They were hardly injured."
+              ],
+              "answer": "C"
+            },
+            {
+              "no": 24,
+              "stem": "What might be the reason the Egyptian queen created the zoo?",
+              "options": [
+                "A) To enable the public to watch animals close by.",
+                "B) To introduce to Egyptians animals from Punt.",
+                "C) To protect the endangered animals.",
+                "D) To show off her riches and power."
+              ],
+              "answer": "D"
+            },
+            {
+              "no": 25,
+              "stem": "What do we learn about King Henry I's collection of animals in England?",
+              "options": [
+                "A) It was part of the royal estate.",
+                "B) It was a shelter for wild animals.",
+                "C) It was the kingdom's best-equipped zoo.",
+                "D) It was the first public exhibit of animals."
+              ],
+              "answer": "A"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "status": "ready",
+  "note": "题目、选项、答案来自 BV1KW15BAEEX（2025年6月第一套），题干与原文经 BV1oP411X7gX 第7P OCR 后结合公开真题源（新东方/可可英语/欧路词典）校对。"
+},
   { id: "2025-06-2", year: 2025, session: "06", title: "2025年6月四级听力（第二套）", status: "pending", sections: [] },
 
   /* ---------- 真题场次（待录入） ---------- */
