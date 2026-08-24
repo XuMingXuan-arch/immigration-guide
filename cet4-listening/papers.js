@@ -434,8 +434,363 @@ window.PAPERS = [
   "note": "题目选项来自 BV1JEREBsEQE，答案来自该视频描述，原文来自 BV1oP411X7gX 第5P。"
 },
 
+  /* ---------- 2025年12月 第二套（已录入） ---------- */
+{
+  "id": "2025-12-2",
+  "year": 2025,
+  "session": "12",
+  "title": "2025年12月四级听力（第二套）",
+  "sections": [
+    {
+      "id": "secA",
+      "name": "Section A · 新闻报道 (News Report)",
+      "directions": "Directions: In this section, you will hear three news reports. At the end of each news report, you will hear two or three questions. Both the news report and the questions will be spoken only once. After you hear a question, you must choose the best answer from the four choices marked A), B), C) and D). Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "passages": [
+        {
+          "label": "News Report 1",
+          "transcript": "Customs and Border Protection officials are seeing a rise in people illegally bringing eggs from Mexico into border states such as Texas. The U.S. average price for a dozen large eggs last month hit four dollars twenty-five cents. That's more than double their one dollar seventy-eight cents price in December 2021. Meanwhile, 30 eggs in Mexico sell for just three dollars forty cents. Those bringing eggs into the U.S. risk fines of up to $10,000, but officials say they usually seize and destroy the eggs. They also impose a 300-dollar penalty. The Department of Agriculture banned eggs from Mexico in 2012. This was due to the risk of bird flu. Officials said most people arriving at international borders with eggs are truthful about their purchases. They simply don't know bringing eggs is not allowed. Generally, the items are declared during the first inspection, then the person can abandon the eggs without consequence, a Customs and Border Protection spokesperson said. Even so, there have been a very small number of cases recently when authorities discovered eggs during further inspections.",
+          "questions": [
+            {
+              "no": 1,
+              "stem": "What do we learn from the news report about the egg price in the U.S.?",
+              "options": [
+                "A) It has gone up sharply.",
+                "B) It has been fluctuating.",
+                "C) It has risen because of bird flu.",
+                "D) It has been consumers' concern."
+              ],
+              "answer": "A"
+            },
+            {
+              "no": 2,
+              "stem": "What does the news report say about most people arriving at American borders with eggs?",
+              "options": [
+                "A) They don't want to abandon their eggs.",
+                "B) They don't know they will be heavily fined.",
+                "C) They don't know they are forbidden to bring eggs.",
+                "D) They don't declare their eggs during the inspection."
+              ],
+              "answer": "C"
+            }
+          ]
+        },
+        {
+          "label": "News Report 2",
+          "transcript": "Nettie's House, a restaurant in America, has been hit with criticism after announcing on their website that children under the age of 10 are no longer welcome. Among the reasons given for the decision, the restaurant cited noise levels, lack of space for high chairs, cleaning up crazy messes, and the liability of kids running around the restaurant. They decided that it was time to take control. The decision wasn't made lightly, but some recent events pushed them to implement this new policy. Responding to the post, one person commented that it is messed up beyond another level. Children are children. Moms are tired and don't have time to cook. Not welcoming children under 10 is a complete slap in the face to families. He felt so disappointed in the establishment. There are others, however, who showed support for the restaurant's decision. They said it has the right to implement any rules it wants.",
+          "questions": [
+            {
+              "no": 3,
+              "stem": "What do we learn from the news report about the restaurant Nettie's House?",
+              "options": [
+                "A) It is no longer critical of younger customers.",
+                "B) It has banned kids under 10 from dining there.",
+                "C) It is no longer as noisy and crowded as before.",
+                "D) It has implemented a decision to expand business."
+              ],
+              "answer": "B"
+            },
+            {
+              "no": 4,
+              "stem": "What do supporters say in response to the restaurant's new policy?",
+              "options": [
+                "A) It is fully aware of frequent customers' feelings.",
+                "B) It caters to the tastes of different customers.",
+                "C) It is entitled to adopt any rules it wants.",
+                "D) It should announce its decisions online."
+              ],
+              "answer": "C"
+            }
+          ]
+        },
+        {
+          "label": "News Report 3",
+          "transcript": "Biosecurity officers were searching a suburb in Australia where an adult snake was believed to be wandering after the discovery of a huge, freshly shed snake skin. The skin was found at a construction site, and the government wrote to residents to warn them. They were told to observe and, if possible, photograph the animal. If it was moving, watch where it went. It was recommended not to make contact with the animal. The type of snake was determined to be one of the world's largest snake species. It is not venomous, but can still attack and kill its victims. This type of snake is classified as a threat to humans, especially small children, as well as pets. They may carry viruses that are fatal to native snakes, which do not have resistance. If officers found the snake, they would employ a licensed snake catcher to catch it and transport it to a specialist animal doctor, the government said. If caught, the snake would be examined to determine where it came from, how long it had been in the area, what it had been eating, whether it was carrying any diseases of concern, and whether it had produced babies.",
+          "questions": [
+            {
+              "no": 5,
+              "stem": "What does the report say biosecurity officers were searching for?",
+              "options": [
+                "A) A missing pet.",
+                "B) A grown-up snake.",
+                "C) A huge animal skin.",
+                "D) A snake specialist."
+              ],
+              "answer": "B"
+            },
+            {
+              "no": 6,
+              "stem": "Where does the report say the discovery was made?",
+              "options": [
+                "A) In a government office.",
+                "B) In a deserted house.",
+                "C) At a local zoo.",
+                "D) At a construction site."
+              ],
+              "answer": "D"
+            },
+            {
+              "no": 7,
+              "stem": "What did the government say would be done if biosecurity officers found what they were searching for?",
+              "options": [
+                "A) Figuring out where it came from.",
+                "B) Curing it of any possible diseases.",
+                "C) Protecting its babies against harm.",
+                "D) Determining how to catch it safely."
+              ],
+              "answer": "A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "secB",
+      "name": "Section B · 长对话 (Long Conversation)",
+      "directions": "Directions: In this section, you will hear two long conversations. At the end of each conversation, you will hear four questions. Both the conversation and the questions will be spoken only once. After you hear a question, you must choose the best answer from the four choices marked A), B), C) and D). Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "passages": [
+        {
+          "label": "Conversation 1",
+          "transcript": "A: Poor Hannah. B: Why? What happened? A: Didn't you hear? She won a TV competition and became a millionaire overnight. B: No way! That's incredible. Are you kidding? A: No, I'm serious. I swear it. She went on a TV show where they quiz on general knowledge, and she won first prize. B: Wow, that's so lucky of her. How much did she win? A: I'm not sure of the exact figure, but it's a few million euros, maybe five million euros after tax. B: I can't believe it. You are really not joking, are you? A: Honestly, look at my face. Our friend Hannah won a ton of money. B: Unbelievable! Then why were you saying poor Hannah? A: Well, it turns out that she's spent it all already. B: Five million euros? How is that even possible? A: She bought a house for herself and her husband, a house for her parents, and then a house for each of her four brothers and sisters. And then she bought her husband a ridiculously expensive sports car. B: Wow. Are they all happy? Because that's what matters, isn't it? A: I know for a fact Hannah isn't. You see, she was planning to quit the job she hates and retire early, but now that she ran out of money, she can't. Basically, she miscalculated how fast she was burning through the money, and she's now full of regret. B: Why don't they sell that flashy new car? A: She wants to, but her husband refuses to get rid of it. He says the car is the best thing that has ever happened to him, and if she sells it, he will divorce her.",
+          "questions": [
+            {
+              "no": 8,
+              "stem": "Why does the woman say she swears it?",
+              "options": [
+                "A) The man doesn't agree Hannah is poor.",
+                "B) The man doesn't believe what she says.",
+                "C) The man doesn't think she can be a millionaire.",
+                "D) The man doesn't consider her to be trustworthy."
+              ],
+              "answer": "B"
+            },
+            {
+              "no": 9,
+              "stem": "What do we learn about Hannah from the conversation?",
+              "options": [
+                "A) She no longer has any money left.",
+                "B) She has been betrayed by her family.",
+                "C) She can no longer hold on to her job.",
+                "D) She has been robbed of 5 million Euros."
+              ],
+              "answer": "A"
+            },
+            {
+              "no": 10,
+              "stem": "What does the man think really matters to people?",
+              "options": [
+                "A) Fortune.",
+                "B) Family.",
+                "C) Harmony.",
+                "D) Happiness."
+              ],
+              "answer": "D"
+            },
+            {
+              "no": 11,
+              "stem": "What does Hannah's husband say he'll do if she sells the new car?",
+              "options": [
+                "A) Divorce her.",
+                "B) Leave home.",
+                "C) Buy her a more expensive model.",
+                "D) Let the best thing happen to them."
+              ],
+              "answer": "A"
+            }
+          ]
+        },
+        {
+          "label": "Conversation 2",
+          "transcript": "A: If you have time right now, I think we need to sit down and discuss what exactly we are going to do for Jake's education next year. I've been thinking it over, and I'd like to send him to Westwood Elementary. B: You mean that boarding school? I thought we agreed that we would not be sending him away at such a young age. I admit that their academic record is very strong, with many outstanding awards for achievements in science and math. But he is just not mature enough to live on his own at this point. What about enrolling him in Lakeview School? A: They do have a great outdoor campus where he could finally learn all those outdoor sports you have been wanting him to try. With so much greenery and fresh air, I think his current breathing problems would probably disappear. They did just open, though, so I don't think I feel comfortable having our son in the first class of a brand-new school. B: Yeah, the classrooms would probably smell like paint, making the air in the school all stuffy. What about our local school, then? They have a wonderful arts program that would really challenge Jake in terms of creativity and imagination. Being practically next door, one of us could take him to school every day before going to work. A: I don't know. They have a reputation of being overly strict with the students, not to mention the overwhelming amount of homework they assign, which would lead to a lot of pressure for Jake and me. What if we send him to the place near your mother's house?",
+          "questions": [
+            {
+              "no": 12,
+              "stem": "What does the man say about Jake?",
+              "options": [
+                "A) He is not outstanding in Science and Math.",
+                "B) He does not have a strong academic record.",
+                "C) He is not yet mature enough to live on his own.",
+                "D) He does not like Westwood Elementary School."
+              ],
+              "answer": "C"
+            },
+            {
+              "no": 13,
+              "stem": "Why does the woman feel uncomfortable about sending Jake to Lakeview School?",
+              "options": [
+                "A) It is too far away.",
+                "B) It is newly opened.",
+                "C) It lacks outdoor sports facilities.",
+                "D) It has too few first-class teachers."
+              ],
+              "answer": "B"
+            },
+            {
+              "no": 14,
+              "stem": "What does the man say about their local school?",
+              "options": [
+                "A) It has a beautiful campus.",
+                "B) It is within walking distance.",
+                "C) It has a wonderful arts program.",
+                "D) It is helpful to Jake's breathing problems."
+              ],
+              "answer": "C"
+            },
+            {
+              "no": 15,
+              "stem": "What does the woman suggest at the end of the conversation?",
+              "options": [
+                "A) Asking Jake which school he himself prefers to enroll in.",
+                "B) Thinking twice about what is best for Jake's education next year.",
+                "C) Consulting her mother about which school Jake is to attend.",
+                "D) Sending Jake to the school near the home of the man's mother."
+              ],
+              "answer": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "secC",
+      "name": "Section C · 短文篇章 (Passage)",
+      "directions": "Directions: In this section, you will hear three passages. At the end of each passage, you will hear three or four questions. Both the passage and the questions will be spoken only once. After you hear a question, you must choose the best answer from the four choices marked A), B), C) and D). Then mark the corresponding letter on Answer Sheet 1 with a single line through the centre.",
+      "passages": [
+        {
+          "label": "Passage 1",
+          "transcript": "Analytical decision-making is a decision-making approach where a manager makes important business decisions only with solid data. This style contrasts with more instinctive leadership styles where managers make many decisions using instinct or opinion. While analytical decision-makers benefit from a deliberate, thoughtful approach, this style also has some shortcomings. A key flaw with analytical decision-making is that it takes time. While this approach is beneficial when you have the time and the decision is important, it is problematic when time is crucial. Analytical decision-makers struggle with deadlines and a sense of urgency with decisions. In situations where you need more timely action, decisions based on some information and instinct may work better. The desire to be right is a major driver of analytical decision-making. Leaders who use this style don't want to make mistakes. This commitment to one right way of thinking or doing things hinders the manager's flexibility. Inflexibility causes you to ignore or avoid listening to the thoughts and ideas of others. You only want to utilize hard data or facts. Despite its restrictions, analytical decision-making does have several key strengths. By relying on facts and data, you minimize your potential for a wrong decision. You also get away from the habit of making guesses or following instincts. Database technology enables business leaders to look through hard evidence in analyzing target markets and promotional strategies rather than making assumptions or guesses on what works.",
+          "questions": [
+            {
+              "no": 16,
+              "stem": "What does the passage say is a major flaw of analytical decision-making?",
+              "options": [
+                "A) It is time consuming.",
+                "B) It is unfit for crucial issues.",
+                "C) It relies too much on solid data.",
+                "D) It dulls a leader's sense of urgency."
+              ],
+              "answer": "A"
+            },
+            {
+              "no": 17,
+              "stem": "What does a leader tend to do when they are committed to analytical decision-making?",
+              "options": [
+                "A) Depend on digital technology.",
+                "B) Make assumptions and guesses.",
+                "C) Ignore others' thoughts and ideas.",
+                "D) Lay emphasis on thinking flexibly."
+              ],
+              "answer": "C"
+            },
+            {
+              "no": 18,
+              "stem": "What is a key strength of analytical decision-making?",
+              "options": [
+                "A) Maximizing the advantage of available resources.",
+                "B) Minimizing the possibility of a wrong decision.",
+                "C) Discovering new potential markets.",
+                "D) Perfecting promotional strategies."
+              ],
+              "answer": "B"
+            }
+          ]
+        },
+        {
+          "label": "Passage 2",
+          "transcript": "What is the secret to living past 100? Playing the piano is among the things the world's oldest person believes has contributed to her long life. Maria Branyas Morera is now 115 years and 320 days old. That means she's been alive longer than any other living individual. Branyas was born in the United States on April 4, 1907, but her family moved to Spain, where they were originally from, when she was a young child. She has lived there ever since. The 115-year-old is active on social media, regularly sharing aspects of her life. She also shares some of her secrets to living so long. These include playing the piano from a young age. Unfortunately, she had to give up the practice seven years ago at 108. Her other secrets for living a long life: she led an active lifestyle until her later years, but has never followed a specific diet. Many people ask me what diet I follow to live so many years, Branyas wrote. I have always eaten little, but everything, and I have never followed any plan. But she does eat yogurt every day, which she said has an infinite number of positive properties for the body. She has also said that the secret to a long life is knowing how to choose what to forget. Life would be impossible if we remembered everything, she said.",
+          "questions": [
+            {
+              "no": 19,
+              "stem": "What do we learn about Maria Branyas Morera?",
+              "options": [
+                "A) She is one of the world's best-known pianists.",
+                "B) She celebrated her 110th birthday this April.",
+                "C) She moved to the U.S. at a young age.",
+                "D) She is the world's oldest individual."
+              ],
+              "answer": "D"
+            },
+            {
+              "no": 20,
+              "stem": "What is one of Maria Branyas Morera's secrets to living a long life?",
+              "options": [
+                "A) Being always active on social media.",
+                "B) Doing regular and vigorous exercise.",
+                "C) Playing the piano from a young age.",
+                "D) Following a specific diet every day."
+              ],
+              "answer": "C"
+            },
+            {
+              "no": 21,
+              "stem": "What does Maria Branyas Morera think also contributes to a long life?",
+              "options": [
+                "A) Eating as little as one can possibly manage.",
+                "B) Having the ability to forget things selectively.",
+                "C) Figuring out the positive properties of each food item.",
+                "D) Knowing how to remember major events in one's life."
+              ],
+              "answer": "B"
+            }
+          ]
+        },
+        {
+          "label": "Passage 3",
+          "transcript": "It's the first day of school, and your teacher tells you to find a seat in the classroom. Where do you sit? Does it matter? Yes, it does matter where you sit in your classroom, so choose and choose carefully. Studies report that where you sit in the classroom can impact your ability to learn and the way your teacher perceives you. Guess what else? Your grade. Then what is the best seat in the classroom? In one study, students who sat in the front and center of the classroom received a higher grade average and scored higher on tests than those sitting towards the back of the classroom. Get this: students sitting in the middle of the classroom also outscored students sitting behind them. This study gathered that students had a clearer vision of the blackboard and were able to focus more attention on the instructor. By sitting front and center, students were able to hear better too. The instructors said that they also formed a better connection with the students who sat in front. Perhaps the connection is made because of eye contact and visibility, and more interaction. But when you sit in the front row, you may be called on more by your teacher, mainly due to the fact that you are easier to see. So, for students who are not prepared and for those who are extremely shy, the attention could cause some unwanted stress.",
+          "questions": [
+            {
+              "no": 22,
+              "stem": "What is of great importance to students according to the speaker?",
+              "options": [
+                "A) The ability to learn.",
+                "B) The first day of school.",
+                "C) How teachers perceive them.",
+                "D) Where they sit in the classroom."
+              ],
+              "answer": "D"
+            },
+            {
+              "no": 23,
+              "stem": "What did one study find about students seated in the middle of the classroom?",
+              "options": [
+                "A) They often received close attention from the instructors.",
+                "B) They obtained the highest grade average in their class.",
+                "C) They actually wanted a clear vision of the blackboard.",
+                "D) They scored higher than students sitting behind them."
+              ],
+              "answer": "D"
+            },
+            {
+              "no": 24,
+              "stem": "What can eye contact, visibility and more interaction probably bring about?",
+              "options": [
+                "A) A higher grade average among all students of a class.",
+                "B) A better connection between instructors and students.",
+                "C) A stronger support for a student-centered teaching approach.",
+                "D) A more favorable atmosphere for effective classroom learning."
+              ],
+              "answer": "B"
+            },
+            {
+              "no": 25,
+              "stem": "What do we learn about extremely shy students sitting in the front row of the classroom?",
+              "options": [
+                "A) They may experience some unwanted stress.",
+                "B) They may try hard to show their preparedness.",
+                "C) They may receive extra attention from the instructor.",
+                "D) They may feel helpless when called on by the instructor."
+              ],
+              "answer": "A"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "status": "ready",
+  "note": "题目、选项、答案来自 BV1JEREBsEa2（2025年12月第二套），题干与原文经 BV1oP411X7gX 第4P OCR 后结合公开真题源校对。"
+},
+
   /* ---------- 2025年场次（待录入） ---------- */
-  { id: "2025-12-2", year: 2025, session: "12", title: "2025年12月四级听力（第二套）", status: "pending", sections: [] },
   { id: "2025-06-1", year: 2025, session: "06", title: "2025年6月四级听力（第一套）", status: "pending", sections: [] },
   { id: "2025-06-2", year: 2025, session: "06", title: "2025年6月四级听力（第二套）", status: "pending", sections: [] },
 
