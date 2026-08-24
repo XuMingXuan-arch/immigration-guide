@@ -68,6 +68,11 @@
   .player iframe,.player audio{display:block;width:100%;border:0;min-height:46px}
   .player iframe{min-height:180px}
   .play-hint{font-size:12px;color:var(--muted);margin:6px 0}
+  .audio-link-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+  .audio-link{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;
+    color:#fff;background:linear-gradient(135deg,#4c8eff,#7c5cff);border-radius:8px;
+    padding:9px 14px;text-decoration:none}
+  .audio-link:hover{filter:brightness(1.12);text-decoration:none}
   .q{background:var(--panel2);border:1px solid var(--border);border-radius:10px;
     padding:12px 14px;margin:10px 0}
   .q-no{font-weight:700;color:var(--accent);font-size:13px}
@@ -205,8 +210,7 @@ function renderPaper(pid){
 
   if(!p.sections || !p.sections.length){
     h += `<div class="guide"><h3>该试卷待录入</h3>
-      <p>把听力原文、题目、B站音频链接给我，我会按下面结构填入 <code>papers.js</code>。</p>
-      <p>每段音频 → 对应的题目数量（一两题或多题），屏幕只显示当前段落题目，与真实试卷一致。</p>
+      <p>给我这套的<b>听力原文</b>（文本） + <b>B站链接/BV号</b>（含每段起始时间）。我从原文提取题目、生成选项和答案后录入。</p>
       <p><a href="#/guide">查看录入指南 →</a></p></div>`;
     app.innerHTML = h; return;
   }
@@ -258,18 +262,32 @@ function renderPassage(pid, pa){
 }
 
 function renderPlayer(media){
-  if(!media || !media.type) return `<div class="play-hint">（未配置音频源）</div>`;
+  if(!media || !media.type) return `<div class="play-hint">（该段未配置音频，可自行播放对应音频对照练习）</div>`;
   if(media.type==='bilibili'){
     if(!media.bvid) return `<div class="play-hint">B站音频待填：在 papers.js 填入 bvid 与 t（起始秒）</div>`;
-    let src = `https://player.bilibili.com/player.html?bvid=${media.bvid}&page=${media.page||1}&high_quality=1&danmaku=0&as_wide=1`;
-    if(media.t) src += `&t=${media.t}`;
-    return `<div class="player"><iframe src="${src}" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
-      <div class="play-hint">若未自动跳到对应位置，拖动到 ${fmtTime(media.t||0)} 处开始。</div>`;
+    const url = `https://www.bilibili.com/video/${media.bvid}${media.t?`?t=${media.t}`:''}`;
+    let h = `<div class="audio-link-row">
+      <a class="audio-link" href="${url}" target="_blank" rel="noopener">▶ 在B站播放此段${media.t?`（从 ${fmtTime(media.t)} 开始）`:''}</a>
+      <button class="btn" onclick="toggleEmbed(this,'${media.bvid}',${media.page||1},${media.t||0})">嵌入播放器</button>
+    </div>`;
+    h += `<div class="player" style="display:none"></div>`;
+    return h;
   }
   if(media.type==='mp3'){
     return `<div class="player"><audio controls preload="metadata" src="${media.src||''}" ${media.t?`onloadedmetadata="this.currentTime=${media.t}"`:''}></audio></div>`;
   }
   return `<div class="play-hint">未知音频类型</div>`;
+}
+function toggleEmbed(btn,bvid,page,t){
+  const wrap = btn.closest('.audio-link-row').nextElementSibling;
+  if(wrap.style.display!=='none'){
+    wrap.style.display='none'; wrap.innerHTML=''; btn.textContent='嵌入播放器'; return;
+  }
+  wrap.style.display='block';
+  let src = `https://player.bilibili.com/player.html?bvid=${bvid}&page=${page}&high_quality=1&danmaku=0&as_wide=1`;
+  if(t) src += `&t=${t}`;
+  wrap.innerHTML = `<iframe src="${src}" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>`;
+  btn.textContent='收起播放器';
 }
 
 function renderQuestion(pid, paid, q){
@@ -338,16 +356,15 @@ function renderGuide(){
   app.innerHTML = `
   <a class="back" href="#/" onclick="location.hash='#/'">← 返回列表</a>
   <div class="guide">
-    <h3>如何录入一套真题（给我这些，我来填）</h3>
-    <p>每套试卷在 <code>papers.js</code> 里是一个对象。你只需把下面信息发我，我会按结构写好：</p>
+    <h3>怎么录入一套真题（你只给两样，剩下的我来）</h3>
+    <p><b>你提供：</b></p>
     <ol style="line-height:2">
-      <li>该套听力 <b>B站视频链接 / BV号</b>（若一整套在一个视频里，再告诉我每段的起始时间）。</li>
-      <li><b>分段结构</b>：Section A 新闻（几篇，每篇几题）/ Section B 长对话（几段，各几题）/ Section C 短文（几篇，各几题）。真题即可，照抄题目顺序。</li>
-      <li>每题 <b>题干 + 四个选项 + 正确答案字母</b>。</li>
-      <li>每段对应的 <b>听力原文</b>（文字稿）。</li>
+      <li>该套的<b>听力原文</b>（文字稿，整段粘贴给我即可）。</li>
+      <li>该套的<b>B站视频链接 / BV号</b>；若整套在一个视频里，再告诉我每一段的起始时间（分:秒）。</li>
     </ol>
-    <p>给我一份，我录一套；录完 <code>git push</code> 即上线，手机电脑刷新就更新。</p>
-    <p style="margin-top:14px"><b>关键设计（按你要求）：</b>每段音频只显示它对应的题目——一段一题就只显示一题，一段三题就显示三题，与真实试卷一致。</p>
+    <p><b>我来做：</b>从原文里提取题目（四级录音会念题干，原文里就有）→ 生成 A-D 选项 → 根据原文内容推定正确答案 → 录入 <code>papers.js</code> 并上线。</p>
+    <p style="margin-top:14px"><b>听题方式（按你要求）：</b>音频在 B 站放（每段给链接和起始时间，可一键打开，也可点“嵌入播放器”在网页里播）；这个网站只负责 <b>看题 → 答题 → 对答案 → 展开原文</b>。</p>
+    <p><b>说明：</b>选项由我生成（非官方原版），答案依原文内容推定——用于日常听练完全够用；以后买到官方试卷可随时替换。</p>
     <p><a href="#/" onclick="location.hash='#/'">← 返回练习</a></p>
   </div>`;
 }

@@ -1,26 +1,41 @@
 /* ============================================================
  *  四级听力真题库数据文件 papers.js
  *  ------------------------------------------------------------
- *  录入新真题：复制一份 paper 对象，改字段即可。
- *  字段说明见每项注释；"示例" 那套为占位演示，可删。
+ *  【分工】你只提供两样：
+ *    1. 该套听力原文（文字稿）
+ *    2. B站视频链接 / BV号（含每段起始时间，若整套一个视频）
+ *  剩下的我来：从原文提取题干（录音会念题）→ 生成 A-D 选项
+ *  → 根据原文内容推定答案 → 按下面结构填入 papers.js。
+ *
+ *  【听题方式】音频在 B 站放（每段给链接+起始秒，可一键打开，
+ *  也可点"嵌入播放器"）；本网站负责：看题 → 答题 → 对答案 → 展开原文。
+ *
+ *  【字段说明】
+ *    id       唯一标识，如 "2024-06"
+ *    year     年份
+ *    session  场次 "06" | "12"（2020 特殊场用 "09"/"12b"）
+ *    title    显示标题
+ *    status   sample=示例 | ready=已录入 | pending=待录入
+ *    note     备注（可选）
+ *    sections 数组：Section A 新闻 / B 长对话 / C 短文
+ *      passages 数组：每段一个对象
+ *        media    音频源：{ type:"bilibili", bvid:"BV...", page:1, t:起始秒 }
+ *        transcript 听力原文
+ *        questions 数组：每题 { no, stem, options:[4个], answer:"A-D" }
+ *
  *  录入完毕无需改 index.html，刷新即生效。
  * ============================================================ */
 
 window.PAPERS = [
 
-  /* ---------- 示例（占位演示，非真题，确认流程后可删） ---------- */
+  /* ---------- 演示样例（自编内容，非真题，展示完整流程） ---------- */
   {
-    id: "demo-2024-06",
-    year: 2024,
-    session: "06",
-    title: "2024年6月 · 大学英语四级听力（示例）",
-    status: "sample",                       // sample=示例 | ready=已录入 | pending=待录入
-    note: "这是占位演示，展示答题流程。换成真题后把 status 改 ready 即可。",
-    media: {                                // 全卷音频源（可选，仅做总入口）
-      type: "bilibili",
-      bvid: "",                            // 填 BV 号，如 "BV1xx411x7xx"
-      page: 1
-    },
+    id: "demo-sample",
+    year: 2026,
+    session: "00",
+    title: "演示样例 · 流程体验（非真题）",
+    status: "sample",
+    note: "这是自编的演示卷，让你看看“看题 → 答题 → 对答案 → 展开原文”的完整流程。换真题后 status 改 ready。",
     sections: [
       {
         id: "secA",
@@ -30,53 +45,31 @@ window.PAPERS = [
           {
             id: "p1",
             label: "News Report 1",
-            media: { type: "bilibili", bvid: "", page: 1, t: 0 },   // t=开始秒数
-            transcript: "（此处粘贴该段听力原文，答题后展开。）",
+            media: { type: "bilibili", bvid: "", page: 1, t: 0 },
+            transcript: "A new study shows that people who walk at least thirty minutes a day are less likely to develop heart disease. Researchers followed ten thousand adults for five years. Those who walked regularly had a twenty percent lower risk. Experts say even a short daily walk can make a difference.",
             questions: [
               {
                 no: 1,
-                stem: "【示例题】What is the news report mainly about?",
-                options: ["A) 占位选项一", "B) 占位选项二", "C) 占位选项三", "D) 占位选项四"],
+                stem: "【演示题】What does the new study show?",
+                options: [
+                  "A) Walking every day helps people sleep better.",
+                  "B) Daily walking lowers the risk of heart disease.",
+                  "C) Running is better than walking for health.",
+                  "D) Heart disease is the most common illness."
+                ],
                 answer: "B"
               },
               {
                 no: 2,
-                stem: "【示例题】According to the report, what happened next?",
-                options: ["A) 占位选项一", "B) 占位选项二", "C) 占位选项三", "D) 占位选项四"],
-                answer: "C"
+                stem: "【演示题】How many adults did researchers follow?",
+                options: [
+                  "A) Five thousand.",
+                  "B) Ten thousand.",
+                  "C) Twenty thousand.",
+                  "D) Fifty thousand."
+                ],
+                answer: "B"
               }
-            ]
-          }
-        ]
-      },
-      {
-        id: "secB",
-        name: "Section B · 长对话 (Long Conversation)",
-        directions: "Directions: In this section, you will hear 2 long conversations. At the end of each conversation, you will hear four questions. Both the conversation and the questions will be spoken only once.",
-        passages: [
-          {
-            id: "p1",
-            label: "Conversation 1",
-            media: { type: "bilibili", bvid: "", page: 1, t: 0 },
-            transcript: "（原文待录入）",
-            questions: [
-              { no: 3, stem: "【示例题】题干占位", options: ["A) 占位","B) 占位","C) 占位","D) 占位"], answer: "A" }
-            ]
-          }
-        ]
-      },
-      {
-        id: "secC",
-        name: "Section C · 短文篇章 (Passage)",
-        directions: "Directions: In this section, you will hear 3 passages. At the end of each passage, you will hear three or four questions. Both the passage and the questions will be spoken only once.",
-        passages: [
-          {
-            id: "p1",
-            label: "Passage 1",
-            media: { type: "bilibili", bvid: "", page: 1, t: 0 },
-            transcript: "（原文待录入）",
-            questions: [
-              { no: 4, stem: "【示例题】题干占位", options: ["A) 占位","B) 占位","C) 占位","D) 占位"], answer: "D" }
             ]
           }
         ]
