@@ -210,7 +210,7 @@ function renderPaper(pid){
 
   if(!p.sections || !p.sections.length){
     h += `<div class="guide"><h3>该试卷待录入</h3>
-      <p>给我这套的<b>听力原文</b>（文本） + <b>B站链接/BV号</b>（含每段起始时间）。我从原文提取题目、生成选项和答案后录入。</p>
+      <p>给我这套的<b>两个 B站视频</b>：一个“题目+音频”，一个“音频+原文”。我提取后，网站会显示题目、答案和原文。</p>
       <p><a href="#/guide">查看录入指南 →</a></p></div>`;
     app.innerHTML = h; return;
   }
@@ -243,8 +243,10 @@ function renderPassage(pid, pa){
     <span class="pass-label">${pa.label||pa.id}</span>
     ${pa.media&&pa.media.t? `<span class="pass-timestamp">▸ 起始 ${fmtTime(pa.media.t)}</span>`:''}
   </div>`;
-  // 播放器
-  h += renderPlayer(pa.media);
+  // 播放器（仅当配置了 media 时显示；真题通常只保留题目/答案/原文）
+  if(pa.media && pa.media.type){
+    h += renderPlayer(pa.media);
+  }
   // 题目
   (pa.questions||[]).forEach(q=>{
     h += renderQuestion(pid, pa.id, q);
@@ -356,7 +358,17 @@ function renderGuide(){
   app.innerHTML = `
   <a class="back" href="#/" onclick="location.hash='#/'">← 返回列表</a>
   <div class="guide">
-    <h3>怎么录入一套真题（你只给两样，剩下的我来）</h3>
+    <h3>怎么录入一套真题</h3>
+    <p>你给我一组两个 B站视频，我整合进网站：</p>
+    <ol style="line-height:2">
+      <li><b>视频1：题目 + 音频</b> —— 我用 OCR 提取题干、A-D 选项，并从视频描述里拿参考答案。</li>
+      <li><b>视频2：音频 + 原文</b> —— 我用 OCR 提取完整听力原文（含 passage 和 question stems）。</li>
+    </ol>
+    <p><b>网站只保留三样东西：</b>题目 → 答题 → 对答案 → 展开原文。<b>音频你自己在 B 站听</b>，网站不再放播放器。</p>
+    <p style="margin-top:14px"><b>提示：</b>由于 OCR 识别烧录字幕/画面文字可能存在个别错误，如果你发现题目或原文有明显问题，直接告诉我，我修正。</p>
+    <p><a href="#/" onclick="location.hash='#/'">← 返回练习</a></p>
+  </div>`;
+}
     <p><b>你提供：</b></p>
     <ol style="line-height:2">
       <li>该套的<b>听力原文</b>（文字稿，整段粘贴给我即可）。</li>
